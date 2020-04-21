@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import GlobalStyle from './theme/GlobalStyle';
+import theme from './theme/PizzaTheme';
+import { ThemeProvider } from 'styled-components';
+
+const root = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <App />
+    </ThemeProvider>
+
   </React.StrictMode>,
-  document.getElementById('root')
+  root
 );
 
 // If you want your app to work offline and load faster, you can change
