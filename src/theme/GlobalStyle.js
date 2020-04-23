@@ -15,10 +15,11 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         line-height: 1.6rem;
-        background-image: linear-gradient(to right bottom, ${props => props.theme.colors.darkRed},${props => props.theme.colors.darkYellow} );
-        background-size: cover;
-        background-repeat: no-repeat;
+        background-color: ${(props)=>props.theme.colors.primary};
         min-height: 100vh;
+    }
+    #root {
+        height: 100vh;
     }
 `;
 

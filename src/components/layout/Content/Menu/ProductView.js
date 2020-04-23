@@ -8,7 +8,7 @@ const ProductFrame = styled.section`
 
 function ProductView() {
     return (
-        <ProductFrame></ProductFrame>
+        <ProductFrame>ProductFrame</ProductFrame>
     )
 }
 

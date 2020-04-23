@@ -1,6 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../icons/logo.svg';
+import { Link } from "react-router-dom";
+
+const SoftButton = styled.button`
+    margin: 0 1rem;
+    padding: .3rem 1rem;
+    color: ${(props) => props.theme.colors.primary};
+    border-radius : 2rem;
+    border: none;
+    line-height: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #fff;
+    font-weight: 900;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1),-2px -2px 15px rgba(255,255,255,1);   
+
+    :hover {
+        box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.1);
+    }
+`;
+
 
 const LeftNav = styled.div`
     display: flex;
@@ -22,33 +42,22 @@ const LeftNav = styled.div`
     list-style: none;
     }
     
-    li button {
-        margin: 0 1rem;
-        display: inline-block;
-        padding: .5rem 1rem;
-        color: ${props => props.theme.colors.darkRed};
-        border-radius : 2rem;
-        border: none;
-        text-align: center;
-        text-decoration: none;
-        font-size: 1.6rem;
-        border: 2px solid palevioletred;
-        background-color:${props => props.theme.colors.darkGrey};
-    }
+   
 
 `;
 
 const HeaderNav = () => {
+
+
     return (
         <LeftNav>
             <img src={logo} alt="Logo" />
             <ul>
-                <li><button>Home</button></li>
-                <li><button>Promotio</button></li>
-                <li><button>Menu</button></li>
-                <li><button>Cart</button></li>
+                <li><Link to="/home"><SoftButton value="Home">Home</SoftButton></Link></li>
+                <li><Link to="/menu"><SoftButton value="Menu">Menu</SoftButton></Link></li>
+                <li><Link to="/cart"><SoftButton value="Cart">Cart</SoftButton></Link></li>
             </ul>
-        </LeftNav>
+        </LeftNav >
     )
 }
 

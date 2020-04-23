@@ -8,7 +8,7 @@ const CartFrame = styled.section`
 
 function SmallCartView() {
     return (
-        <CartFrame></CartFrame>
+        <CartFrame>CartFrame</CartFrame>
     )
 }
 

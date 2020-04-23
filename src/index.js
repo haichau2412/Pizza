@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import GlobalStyle from './theme/GlobalStyle';
 import theme from './theme/PizzaTheme';
 import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = document.getElementById('root');
 
@@ -12,9 +13,10 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
-
   </React.StrictMode>,
   root
 );

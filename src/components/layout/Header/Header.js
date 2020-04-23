@@ -6,15 +6,13 @@ import HeaderEnd from './HeaderEnd';
 
 
 const StyledHeader = styled.header`
-    
     width: 100%;
-    height: 5rem;
+    height: 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${props => props.theme.colors.darkGrey};
+    background-color: ${(props) => props.theme.colors.quiteLight};    
     align-items: center;
-
 `;
 
 

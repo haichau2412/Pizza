@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import sprite from '../icons/sprite.svg';
 import photo from '../images/photo.jpg';
+import DropdownMenu from './DropdownMenu';
+
 
 const RightHeader = styled.div`
     align-self: stretch;
@@ -40,7 +42,7 @@ const UserDashboard = styled.div`
     display: flex;
     align-items: center;
     margin-right: 1rem;
-
+    position: relative;
     img{
         height: 3rem;
         border-radius: 50%;
@@ -52,17 +54,20 @@ const UserDashboard = styled.div`
 `;
 
 const HeaderEnd = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <RightHeader>
-            <CartIcon><svg>
-                <use href={sprite + '#icon-cart'} />
-            </svg>
+            <CartIcon>
+                <svg>
+                    <use href={sprite + '#icon-cart'} />
+                </svg>
                 <span>7</span>
             </CartIcon>
-
-            <UserDashboard>
+            <UserDashboard onClick={() => setIsOpen(pre => !pre)} >
                 <img src={photo} alt="User" />
                 <span>Name</span>
+                {isOpen && <DropdownMenu />}
             </UserDashboard>
         </RightHeader>
     )
