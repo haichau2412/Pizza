@@ -1,10 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const CartFrame = styled.section`
-    background-color: green;
-    flex: 1;
-`;
+import { CartFrame } from './Styled';
 
 function SmallCartView() {
     return (

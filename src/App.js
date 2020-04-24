@@ -1,28 +1,17 @@
 import React from 'react';
 import './App.css';
-import Header from './components/layout/Header/Header';
-import Menu from './components/layout/Content/Menu/Menu';
-import styled from 'styled-components';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch
-} from "react-router-dom";
-import SideBar from './components/layout/Content/SideBar/SideBar';
-import routes from './components/layout/Content/SideBar/routes';
-import ContentWrapper from './components/layout/ContentWrapper';
-
+import Header from './App/Header/Header';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Body from './App/Body/Body';
 
 
 function App() {
 
   return (
-    <>
+    <Router>
       <Header></Header>
-      <ContentWrapper />
-    </>
+      <Body />
+    </Router>
   );
 }
 

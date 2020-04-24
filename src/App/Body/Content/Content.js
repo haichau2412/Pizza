@@ -1,15 +1,14 @@
 import React from 'react'
 import {
-    useParams,
     Route,
     Switch
 } from 'react-router-dom';
+import Menu from './Menu/Menu';
+import Home from './Home/Home';
+import Cart from './Cart/Cart';
+import User from './User/User';
+import { ContentWrapper } from './Styled';
 
-import Cart from './Content/Cart/Cart';
-import Home from './Content/Home/Home';
-import Menu from './Content/Menu/Menu';
-import User from './Content/User/User';
-import styled from 'styled-components';
 
 const routes = [
     {
@@ -18,11 +17,11 @@ const routes = [
     },
     {
         path: '/home',
-        component: Home
+        component: Home,
     },
     {
         path: '/cart',
-        component: Cart
+        component: Cart,
     },
     {
         path: '/user',
@@ -30,32 +29,22 @@ const routes = [
     }
 ]
 
-const Content = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-`;
 
-function ContentRoutes() {
 
+const Content = () => {
 
     return (
-
         <Switch>
             {routes.map((route, index) => {
                 return <Route key={index} path={`${route.path}`}>
-                    <Content>
+                    <ContentWrapper>
                         <route.component />
-                    </Content>
+                    </ContentWrapper>
 
                 </Route>
             })}
         </Switch>
-
-
-
     )
-}
+};
 
-export default ContentRoutes
+export default Content;
