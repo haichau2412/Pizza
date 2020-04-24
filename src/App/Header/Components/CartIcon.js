@@ -1,5 +1,5 @@
 import React from 'react';
-import sprite from '../../Media/SVG/sprite';
+import sprite from '../../Media/sprite.svg';
 import { StyledCartIcon } from '../Styled/Styled';
 
 const CartIcon = () => {

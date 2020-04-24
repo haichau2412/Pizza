@@ -1,6 +1,6 @@
 import React from 'react';
 import { LeftHeader, Logo, ListNav, NavButton } from '../Styled/Styled';
-import logo from '../../Media/logo';
+import logo from '../../Media/logo.svg';
 
 const HeaderNav = () => {
 

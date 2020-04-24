@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { StyledUserDashboard } from '../Styled/Styled';
 import photo from '../../Media/photo.jpg';
-import DropdownMenu from '../../../components/layout/Header/DropdownMenu';
+import DropdownMenu from './DropdownMenu';
 
-const UserDashboard = ({ toggleDashboard }) => {
+
+const UserDashboard = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const toggleMenu = useCallback(
+        () => {
+            setIsOpen(!isOpen)
+        },
+        [isOpen]
+    )
+
     return (
-        <StyledUserDashboard onClick={setIsOpen(pre => !pre)} >
+        <StyledUserDashboard onClick={toggleMenu} >
             <img src={photo} alt="User" />
             <span>Name</span>
             {isOpen && <DropdownMenu />}
