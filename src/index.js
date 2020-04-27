@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import GlobalStyle from './theme/GlobalStyle';
-import theme from './theme/PizzaTheme';
+import GlobalStyle from './App/styles/GlobalStyle';
+import theme from './App/styles/PizzaTheme';
 import { ThemeProvider } from 'styled-components';
 
 
