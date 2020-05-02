@@ -31,12 +31,20 @@ export const NavButton = styled(Link)`
     text-transform: uppercase;
     background-color: #fff;
     font-weight: 900;
+    font-size: 2rem;
     text-decoration: none;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1),-2px -2px 15px rgba(255,255,255,1);   
     
     :hover {
         box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.1);
     }
+
+    :link {
+        outline: 0;
+        border: none;
+        -moz-outline-style: none;
+    }
+
 `;
 
 export const LeftHeader = styled.div`
@@ -68,7 +76,7 @@ export const StyledCartIcon = styled.div`
         height: 3rem;
         width: 3rem;
         margin-right: 2rem;
-        fill: #fff;
+        fill:${props => props.theme.colors.primary};
     }
 
     span {
@@ -79,8 +87,7 @@ export const StyledCartIcon = styled.div`
         width: 1.5rem;
         border-radius: 50%;
         color: #fff;
-        background-color: ${props => props.theme.colors.darkRed};
-        display: inline-block;
+        background-color: ${props => props.theme.colors.red};
         display: flex;
         justify-content:center;
         align-items: center;

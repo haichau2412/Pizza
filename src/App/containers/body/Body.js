@@ -4,7 +4,7 @@ import {
     Switch
 } from "react-router-dom";
 import { StyledBody } from './Styled';
-import Auth from '../../components/auth/Auth';
+import User from '../../components/user/User';
 import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
@@ -24,13 +24,12 @@ const routes = [
     },
     {
         path: '/auth',
-        component: Auth,
+        component: User,
     }
 ]
 
 const Body = () => {
     return (
-
         <Switch>
             {routes.map((route, index) => {
                 return <Route key={index} path={`${route.path}`}>

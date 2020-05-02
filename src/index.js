@@ -5,15 +5,21 @@ import * as serviceWorker from './serviceWorker';
 import GlobalStyle from './App/styles/GlobalStyle';
 import theme from './App/styles/PizzaTheme';
 import { ThemeProvider } from 'styled-components';
-
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './App/redux/auth/AuthStore';
 
 const root = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
+      <Provider store={store}>
+        <GlobalStyle />
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   root
