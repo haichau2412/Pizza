@@ -7,7 +7,8 @@ export const theme = {
         quiteLight: '#f5f6fa',
         grey: '#353b48',
         darkGrey: '#2f3640',
-        red: '#EA2027'
+        red: '#EA2027',
+        background: '#F0F2F5',
     }
 }
 export default theme;

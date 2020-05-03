@@ -1,4 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import UserServices from '../../service/UserServices';
+
+
+export const authUserbySignup = createAsyncThunk(
+    'auth/authUserbySignupStatus',
+    async (info, thunkAPI) => {
+        const data = await UserServices.signup(info);
+        return data;
+    }
+)
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -6,7 +16,7 @@ export const authSlice = createSlice({
         currentUser: { id: 0, username: '' },
         authenticating: false,
         authenticated: false,
-        tooken: '',
+        token: '',
         error: ''
     },
     reducers: {
@@ -17,15 +27,25 @@ export const authSlice = createSlice({
             state.currentUser = action.payload.username;
             state.authenticated = true;
             state.authenticating = false;
-            state.tooken = action.payload.tooken;
+            state.token = action.payload.tooken;
         },
         error: (state, action) => {
             state.authenticating = false;
             state.error = action.payload.error;
         }
     },
+    extraReducers: {
+        [authUserbySignup.fulfilled]: (state, action) => {
+            console.log(action.payload);
+        }
+    }
 });
+
+
 const { actions, reducer } = authSlice;
 
+
 export const { request, success, error } = actions;
+
 export default reducer;
+

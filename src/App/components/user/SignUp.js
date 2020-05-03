@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
     useFormik
 } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
 import { FormTitle, InputField, Label, Input, Button, FormContainer, Wrapper } from './StyledAuth';
 import { signup } from '../../service/UserServices';
+import { authUserbySignup } from '../../redux/auth/AuthSlice';
+
 const initialValues = {
     username: '',
     password: '',
@@ -11,7 +14,10 @@ const initialValues = {
     confirmedPassword: ''
 };
 
+
+
 const onSubmit = async (values, { setSubmitting, resetForm }) => {
+
     setSubmitting(true);
     try {
         const tooken = await signup(values);
@@ -43,18 +49,43 @@ const validate = (values) => {
     if (!confirmedPassword) {
         errors.password = 'Required';
     }
+    else if (confirmedPassword !== password) {
+        errors.confirmedPassword = 'ConfirmedPassword not matching'
+    }
     return errors;
 
 }
 
+const getName = (state) => {
+    return state.auth
+};
+
 const SignUp = () => {
+
+    const authInfo = useSelector(getName);
+    const dispatch = useDispatch();
+
+    const memoizedCallback = useCallback(() => console.log(authInfo), [authInfo]);
+
+    memoizedCallback();
+
     const formik = useFormik({
         initialValues,
-        onSubmit,
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
+
+            setSubmitting(true);
+            try {
+                dispatch(authUserbySignup(values));
+            }
+            catch (error) {
+
+            }
+            setSubmitting(false);
+        },
         validate
     })
 
-    const { errors, values, handleChange, handleSubmit, handleBlur, isSubmitting } = formik;
+    const { errors, values, handleChange, handleSubmit, isSubmitting } = formik;
     const { username, password, email, confirmedPassword } = values;
 
     return (
@@ -78,8 +109,8 @@ const SignUp = () => {
                         {errors.password ? <div>{errors.password}</div> : null}
                     </InputField>
                     <InputField>
-                        <Label htmlFor="confirmedPassword">confirmedPassword</Label>
-                        <Input type="confirmedPassword" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} value={confirmedPassword} />
+                        <Label htmlFor="confirmedPassword">Confirm Password</Label>
+                        <Input type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} value={confirmedPassword} />
                         {errors.confirmedPassword ? <div>{errors.confirmedPassword}</div> : null}
                     </InputField>
                     <Button disabled={isSubmitting} type="submit">Sign up</Button>

@@ -1,7 +1,8 @@
-import React from 'react';
-import { StyledLink, StyledSidebar, StyledItem } from './Styled';
+import React, { useState } from 'react';
+import { StyledLink, StyledSidebar, StyledItem } from './StyledSidebar';
 
 function Sidebar({ routes }) {
+   
     return (
         <StyledSidebar>
             {routes.map((route, index) => {

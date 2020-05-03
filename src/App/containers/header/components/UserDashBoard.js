@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { StyledUserDashboard } from './Styled';
+import { StyledUserDashboard } from './StyledHeader';
 import photo from '../../../assets/photo.jpg';
 import DropdownMenu from './DropdownMenu';
 

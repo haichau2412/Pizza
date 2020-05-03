@@ -11,6 +11,11 @@ import Home from '../../components/home/Home';
 
 const routes = [
     {
+        path: '/',
+        component: Home,
+        exact: true
+    },
+    {
         path: '/menu',
         component: Menu
     },
@@ -32,7 +37,7 @@ const Body = () => {
     return (
         <Switch>
             {routes.map((route, index) => {
-                return <Route key={index} path={`${route.path}`}>
+                return <Route key={index} exact={route.exact} path={`${route.path}`}>
                     <StyledBody>
                         <route.component />
                     </StyledBody>

@@ -1,6 +1,6 @@
 import React from 'react';
 import sprite from '../../../assets/sprite.svg';
-import { StyledCartIcon } from './Styled';
+import { StyledCartIcon } from './StyledHeader';
 
 const CartIcon = () => {
     return (

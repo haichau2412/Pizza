@@ -14,25 +14,25 @@ const handleResponse = async (response) => {
             const error = (result.errorMessage) || response.statusText;
             return Promise.reject(error);
         }
-        return result.tooken;
+        return { token: result.token };
     }
     catch (error) {
-        return error;
+        return { error };
     }
 
 }
 
-export const signup = async (data) => {
+export const signup = async (info) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data })
+        body: JSON.stringify({ ...info })
     }
 
     const response = await fetch(`${API_HOST}/registration`, requestOptions);
-    const tooken = await handleResponse(response);
+    const data = await handleResponse(response);
 
-    return tooken;
+    return data;
 }
 
 const logout = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CartFrame } from './Styled';
+import { CartFrame } from './StyledMenu';
 
 function SmallCartView() {
     return (

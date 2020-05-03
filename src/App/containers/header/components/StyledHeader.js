@@ -3,16 +3,21 @@ import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
     width: 100%;
-    height: 8%;
+    
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.theme.colors.quiteLight};    
+    background-color: #fff;    
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
 `;
 
 export const ListNav = styled.ul`
-    margin-left: 8rem;
+    /* margin-left: 8rem; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -121,6 +126,7 @@ export const Dropdown = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
+    z-index: 2;
 `;
 
 export const DropdownItem = styled(Link)`

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownItem } from './Styled';
+import { Dropdown, DropdownItem } from './StyledHeader';
 
 const routes = {
     unauthenticated: [

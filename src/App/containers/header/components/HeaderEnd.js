@@ -1,5 +1,5 @@
 import React from 'react';
-import { RightHeader } from './Styled';
+import { RightHeader } from './StyledHeader';
 import CartIcon from './CartIcon';
 import UserDashboard from './UserDashBoard';
 
