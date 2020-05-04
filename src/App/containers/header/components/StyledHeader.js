@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
-    width: 100%;
-    
+    padding: 1rem 0;
+    width: 100vw;
     height: 8vh;
     display: flex;
     justify-content: space-between;
@@ -12,8 +12,14 @@ export const StyledHeader = styled.header`
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 1001;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
+
+    @media (max-width: 320px) {
+        height: 16vh;
+        font-size: 1.6rem;
+        flex-direction: column;
+    }
 `;
 
 export const ListNav = styled.ul`
@@ -47,7 +53,10 @@ export const NavButton = styled(Link)`
     :link {
         outline: 0;
         border: none;
-        -moz-outline-style: none;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
     }
 
 `;
@@ -64,10 +73,18 @@ export const Logo = styled.img`
 `;
 
 export const RightHeader = styled.div`
+    position: relative;
     align-self: stretch;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    @media (max-width: 320px) {
+        font-size: 1.6rem;
+        
+    }
+
+
 `;
 
 
@@ -117,21 +134,34 @@ export const StyledUserDashboard = styled.div`
 export const Dropdown = styled.div`
 
     position: absolute;
-    top: 58px;
+    top: 60px;
+    right: 0;
     background-color: #fff;
-    border: 1px solid  ${props => props.theme.colors.darkGrey};
-    border-radius: .5rem;
+    border-radius: 8px;
     padding: 1rem;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
-    z-index: 2;
+  
+    
+
 `;
 
 export const DropdownItem = styled(Link)`
+    
     display: inline-block;
+    text-align: center;
+    width: 10rem;
     text-decoration: none;
+    padding: 1rem;
+
+    :hover {
+        border-radius: 8px;
+        background-color: ${props => props.theme.colors.background}
+    }
+    :visited {
+        color: #000;
+    }
 `;
 
 

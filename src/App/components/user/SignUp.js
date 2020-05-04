@@ -114,7 +114,6 @@ const SignUp = () => {
                         {errors.confirmedPassword ? <div>{errors.confirmedPassword}</div> : null}
                     </InputField>
                     <Button disabled={isSubmitting} type="submit">Sign up</Button>
-                    <pre>{JSON.stringify(values, null, 2)}</pre>
                 </form>
             </FormContainer>
 

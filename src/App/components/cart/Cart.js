@@ -1,11 +1,15 @@
 import React from 'react'
+import { StyledCart } from './StyledCart'
+import ProductInfo from './ProductInfo'
+import Price from './Price'
 
 function Cart() {
 
     return (
-        <div>
-            Cart
-        </div>
+        <StyledCart>
+            <ProductInfo />
+            <Price />
+        </StyledCart>
     )
 }
 

@@ -11,7 +11,7 @@ const Item = () => {
             <h5>Name of Pizza</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, laborum.</p>
             <p>170 000 VND</p>
-            <button>Add to cart</button>
+            <button>ADD TO CART</button>
         </StyledItem>
     )
 }

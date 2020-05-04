@@ -4,13 +4,11 @@ export const MenuWrapper = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 92vh;
     margin-left: 15rem;
-    padding-top: 1rem;
 
     @media (max-width: 768px) {
         margin-left: 0rem;
-        margin-top: 15vh;
+        margin-top: 5vh;
     }
     
     
@@ -28,12 +26,10 @@ export const ProductFrame = styled.div`
 
 
 export const ImageContainer = styled.div`
-    
     width: 90%;
-    height: 90%;
     height: 20rem;
     overflow: hidden;
-    margin: 2rem;
+    margin: 2rem auto;
 `;
 
 export const Image = styled.div`

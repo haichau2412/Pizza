@@ -4,13 +4,12 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     width: 400px;
     background-color: #fff;
     border-radius: 1rem;
-    box-shadow: 10px 10px 30px ${(props) => props.theme.colors.primaryDark},
-    -10px -10px 30px ${(props) => props.theme.colors.primaryLight}; 
     padding: 5rem 5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
 `
 export const FormTitle = styled.span`
     display: block;

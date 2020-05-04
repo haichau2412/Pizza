@@ -3,7 +3,7 @@ import {
     Route,
     Switch
 } from "react-router-dom";
-import { StyledBody } from './Styled';
+import { StyledBody } from './StyledBody';
 import User from '../../components/user/User';
 import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';

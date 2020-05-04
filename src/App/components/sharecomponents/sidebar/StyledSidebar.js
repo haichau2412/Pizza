@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export const StyledSidebar = styled.nav`
     background-color: ${(props) => props.theme.colors.primaryDark};
     height: 92vh;
-    width: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,6 +11,7 @@ export const StyledSidebar = styled.nav`
     position: fixed;
     left: 0;
     top: 8vh;
+    
 
     @media (max-width: 768px) {
         flex-direction: row;
@@ -19,12 +19,15 @@ export const StyledSidebar = styled.nav`
         height: auto;
         z-index: 1000;
     }
+
+    @media (max-width: 320px) {
+        top: 16vh;
+    }
     
 `;
 export const StyledItem = styled.div`
     position: relative;
     width: 100%;
-    font-size: 2rem;
 
     :not(:last-child){
         margin-bottom: 2rem;
@@ -91,6 +94,8 @@ export const StyledLink = styled(Link)`
     z-index: 2;
     display: inline-block;
     text-align: center;
+    font-size: 1.6rem;
+    padding: 1.5rem 3rem;
 
     :link,:visited {
         outline: 0;
@@ -99,7 +104,7 @@ export const StyledLink = styled(Link)`
         color: #fff;
         display: block;
         text-transform: uppercase;
-        padding: 1.5rem 3rem;
+        
     }
 
     :focus ${StyledItem} {
@@ -107,6 +112,11 @@ export const StyledLink = styled(Link)`
         transform: scaleY(1);
         width: 100%;
         background-color: ${(props) => props.theme.colors.primaryLight};
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
     }
     
 
