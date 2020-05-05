@@ -1,8 +1,15 @@
 import React from 'react';
-import { TableHeading, StyledInfo, StyledHr } from './StyledCart';
+import { TableHeading, StyledInfo } from './StyledCart';
 import Product from './Product';
+import { useSelector } from 'react-redux';
 
+
+const getCart = (state) => state.cart.products
 const ProductInfo = () => {
+    const cart = useSelector(getCart);
+    const keys = Object.keys(cart)
+
+
     return (
         <StyledInfo>
             <TableHeading>
@@ -11,9 +18,9 @@ const ProductInfo = () => {
                 <p>Quantity</p>
                 <p>Total</p>
             </TableHeading>
-            <Product />
-            <Product />
-            <Product />
+            {keys.map((productId, index) => {
+                return <Product key={index} product={cart[productId]} />
+            })}
         </StyledInfo>
     )
 }

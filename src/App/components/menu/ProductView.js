@@ -3,17 +3,13 @@ import { ProductFrame } from './StyledMenu';
 import Item from './Item';
 
 
-function ProductView() {
+function ProductView({ products }) {
+
     return (
         <ProductFrame>
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {products.map((product, index) => {
+                return <Item key={index} product={product} />
+            })}
         </ProductFrame>
     )
 }

@@ -1,16 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import pizza from "../../assets/pizza.png";
-
-const fadein = keyframes`
-  from 
-      { 
-        opacity: 0; 
-        }
-  to   
-  { 
-    opacity: 1; 
-  }
-`
+import { Link } from 'react-router-dom';
 
 export const StyledHome = styled.div`
     position: relative;
@@ -69,23 +59,25 @@ export const StyledBanner = styled.section`
         }
     }
 
-    button {
-      color: #fff;
-      margin-top: 5rem;
-      font-size: 3rem;
-      padding: 2rem 3rem;
-      outline: none;
-      border: none;
-      border-radius: 3rem;
-      background-color: ${props => props.theme.colors.primaryLight};
-      text-transform: uppercase;
-      cursor: pointer;
-
-      :hover {
-
-      }
-    }
+    
 `;
+
+export const LinkButton = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  margin-top: 5rem;
+  font-size: 3rem;
+  padding: 2rem 3rem;
+  outline: none;
+  border: none;
+  border-radius: 3rem;
+  background-color: ${props => props.theme.colors.primaryLight};
+  text-transform: uppercase;
+  cursor: pointer;
+
+  
+`;
+
 
 export const ProductImage = styled.div`
   z-index: 2;

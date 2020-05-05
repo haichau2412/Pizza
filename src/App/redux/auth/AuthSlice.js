@@ -44,7 +44,6 @@ export const authSlice = createSlice({
 
 const { actions, reducer } = authSlice;
 
-
 export const { request, success, error } = actions;
 
 export default reducer;

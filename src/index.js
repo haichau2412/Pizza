@@ -7,7 +7,7 @@ import theme from './theme/PizzaTheme';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './App/redux/auth/AuthStore';
+import { store, persistor } from './App/redux/PersistStore';
 
 const root = document.getElementById('root');
 

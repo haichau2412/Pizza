@@ -1,31 +1,34 @@
 import React from 'react';
-import { TableHeading, Image, StyledInfo, InfoFrame, Tag, Description, Cost, Quantity, Total, StyledHr } from './StyledCart';
-import tomato from '../../assets/tomato.jpg';
+import { Image, InfoFrame, Tag, Description, Cost, Quantity, Total } from './StyledCart';
 import sprite from '../../assets/sprite.svg';
+import tomato from '../../assets/tomato.jpg';
 
-const Product = () => {
+
+
+const Product = ({product}) => {
+    const { photo, name, description, quantity, price } = product;
     return (
         <>
             <InfoFrame>
                 <Image image={tomato} />
-                <Tag>Basic pizza with ham</Tag>
+                <Tag>{name}</Tag>
                 <Description>
-                    Fresh lettuce, tomato, cucumber & onion with AL's homemade vinaigrette dressing.
+                    {description}
                 </Description>
                 <Cost>
-                    170.000 VND
+                    {price}
                 </Cost>
                 <Quantity>
                     <button><svg>
                         <use href={sprite + '#icon-arrow-down'} />
                     </svg></button>
-                    <p>5</p>
+                    <p>{quantity}</p>
                     <button><svg>
                         <use href={sprite + '#icon-arrow-up'} />
                     </svg></button>
                 </Quantity>
                 <Total>
-                    850.000 VND
+                    {`${quantity * price} VND`}
                 </Total>
             </InfoFrame>
         </>

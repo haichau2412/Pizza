@@ -1,17 +1,23 @@
 import React from 'react';
-import tomato from '../../assets/tomato.jpg';
 import { StyledItem, ImageContainer, Image } from './StyledMenu';
-const Item = () => {
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cart/CartSlice';
+
+
+const Item = ({ product }) => {
+    const dispatch = useDispatch();
+    console.log(product);
+    const { photo, name, description, price } = product;
 
     return (
         <StyledItem>
             <ImageContainer >
-                <Image image={tomato} />
+                <Image image={photo} />
             </ImageContainer>
-            <h5>Name of Pizza</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, laborum.</p>
-            <p>170 000 VND</p>
-            <button>ADD TO CART</button>
+            <h5>{name}</h5>
+            <p>{description}</p>
+            <p>{`${price} VND`}</p>
+            <button onClick={() => dispatch(addToCart({ product }))}>ADD TO CART</button>
         </StyledItem>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledBanner, StyledHr } from './StyledHome';
+import { StyledBanner, StyledHr, LinkButton } from './StyledHome';
 
 const Banner = () => {
     return (
@@ -11,7 +11,7 @@ const Banner = () => {
                 <li>Totally fresh and innovative take on pizza</li>
                 <li>Every bite carries special aftertaste</li>
             </ul>
-            <button>Order now !</button>
+            <LinkButton to="/menu">Order now !</LinkButton>
         </StyledBanner >
     )
 }

@@ -6,7 +6,7 @@ export const ProductFrame = styled.div`
     margin-top: 8vh;
     padding-left: 5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     column-gap: 5rem;
     row-gap: 3rem;
     @media (max-width: 768px) {
@@ -26,7 +26,7 @@ export const ImageContainer = styled.div`
 export const Image = styled.div`
     width: 100%;
     height: 100%;
-    background-image: url(${props => props.image});
+    background-image: url(https://lh3.googleusercontent.com/-mpEedD3P6FiRoMrAZ4wnvm8_nVdA-cwam6eWo-fi3l8E8a3hHFsKJcBxlBV7SXL__oF1ZPzaMYZYMyduG9a=w1864-h949-rw);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
