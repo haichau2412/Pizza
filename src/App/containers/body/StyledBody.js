@@ -5,4 +5,5 @@ export const StyledBody = styled.div`
         padding: 5vh 0; 
         justify-content: center;
         margin-top: 8vh;
+        position: relative;
 `;

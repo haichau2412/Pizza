@@ -1,27 +1,18 @@
 import styled from 'styled-components';
 
-export const MenuWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-left: 15rem;
-
-    @media (max-width: 768px) {
-        margin-left: 0rem;
-        margin-top: 5vh;
-    }
-    
-    
-`;
-
 export const ProductFrame = styled.div`
-    flex: 0 0 100%;
-    padding: 0 5rem;
+    margin-left: 10rem;
+    padding: 3rem; 
+    margin-top: 8vh;
     padding-left: 5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     column-gap: 5rem;
     row-gap: 3rem;
+    @media (max-width: 768px) {
+        margin-left: 0rem;
+        margin-top: 15vh;
+    }
 `;
 
 
@@ -66,6 +57,7 @@ export const StyledItem = styled.div`
     }
 
     p {
+        padding: 0 2rem;
         grid-column: 1 / -1;
         font-size: 1.6rem;
     }
@@ -104,13 +96,6 @@ export const StyledItem = styled.div`
     }
 
 `;
-
-export const CartFrame = styled.section`
-    background-color: green;
-    flex: 1;
-    z-index: 1;
-`;
-
 
 
 

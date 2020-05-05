@@ -38,9 +38,7 @@ const Body = () => {
         <Switch>
             {routes.map((route, index) => {
                 return <Route key={index} exact={route.exact} path={`${route.path}`}>
-                    <StyledBody>
                         <route.component />
-                    </StyledBody>
                 </Route>
             })}
         </Switch>

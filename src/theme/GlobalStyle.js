@@ -18,9 +18,9 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.colors.background  };
         min-height: 100vh;
     }
-    #root {
+    /* #root {
         height: 100vh;
-    }
+    } */
 `;
 
 export default GlobalStyle;

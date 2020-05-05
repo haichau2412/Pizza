@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const StyledCart = styled.div`
     display: flex;
-    margin: 0 5rem;
     justify-content: center;
     width: 100%;
+    margin-top: 8vh;
+    padding: 5rem;
     
 
     & > * {
@@ -14,10 +15,10 @@ export const StyledCart = styled.div`
     }
 
     @media (max-width: 1024px) {
+        padding: 3rem;
+        margin-top: 8vh;
         flex-direction: column;
        
-        margin: 0 2rem;
-        margin-top: 15vh;
     }
 `;
 

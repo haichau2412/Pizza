@@ -1,16 +1,18 @@
 import React from 'react';
-import { StyledBanner } from './Styled';
+import { StyledBanner, StyledHr } from './StyledHome';
 
 const Banner = () => {
     return (
         <StyledBanner>
-            <h1>PYCO GANG PIZZA</h1>
+            <h1>PYCO PIZZA</h1>
+            <StyledHr />
             <ul>
                 <li>Authentic and handcrafted pizza</li>
                 <li>Totally fresh and innovative take on pizza</li>
                 <li>Every bite carries special aftertaste</li>
             </ul>
-        </StyledBanner>
+            <button>Order now !</button>
+        </StyledBanner >
     )
 }
 
