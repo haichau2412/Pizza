@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyledPrice } from './StyledCart';
+import { StyledPrice, NavigationButton } from './StyledCart';
 
-const Price = () => {
+const Price = ({ data }) => {
+    const { items, total } = data;
     return (
         <StyledPrice>
             <p>Order</p>
-            <p>10 items</p>
+            <p>{items} items</p>
             <p>Total</p>
-            <p>1.700.000 VND</p>
-            <button>Continue Orders</button>
-            <button>Checkout</button>
+            <p>{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)}`}</p>
+            <NavigationButton to="/menu">Continue Orders</NavigationButton>
+            <NavigationButton to="/checkout">Checkout</NavigationButton>
         </StyledPrice>
     )
 }

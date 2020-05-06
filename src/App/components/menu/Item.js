@@ -6,7 +6,6 @@ import { addToCart } from '../../redux/cart/CartSlice';
 
 const Item = ({ product }) => {
     const dispatch = useDispatch();
-    console.log(product);
     const { photo, name, description, price } = product;
 
     return (
@@ -16,7 +15,7 @@ const Item = ({ product }) => {
             </ImageContainer>
             <h5>{name}</h5>
             <p>{description}</p>
-            <p>{`${price} VND`}</p>
+            <p>{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</p>
             <button onClick={() => dispatch(addToCart({ product }))}>ADD TO CART</button>
         </StyledItem>
     )

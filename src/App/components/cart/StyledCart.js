@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const StyledCart = styled.div`
     display: flex;
@@ -239,7 +240,15 @@ export const StyledPrice = styled.div`
         font-weight: 800;
     }
 
-    button {
+    
+
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
+`;
+
+export const NavigationButton = styled(Link)`
+
         font-size: 1.6rem;
         padding: 1rem;
         border: none;
@@ -248,22 +257,19 @@ export const StyledPrice = styled.div`
         color: #fff;
         transition: background-color .1s;
         cursor: pointer;
+        text-decoration: none;
+        text-align: center;
 
-        :hover,:link{
+        :hover{
             background-color:  ${props => props.theme.colors.primaryLight};
         }
-    }
 
-    button:nth-of-type(1) {
+    &:nth-of-type(1) {
         border-right: 2px solid ${props => props.theme.colors.primaryLight};
         border-bottom-left-radius: 8px;
     }
 
-    button:nth-of-type(2) {
+    &:nth-of-type(2) {
         border-bottom-right-radius: 8px;
-    }
-
-    @media (max-width: 1024px) {
-        width: 100%;
     }
 `;
