@@ -2,9 +2,9 @@ import { combineReducers } from '@reduxjs/toolkit';
 import authReducer from './auth/AuthSlice';
 import cartReducer from './cart/CartSlice';
 
-const rootStore = combineReducers({
+const appStore = combineReducers({
     auth: authReducer,
     cart: cartReducer
 });
 
-export default rootStore;
+export default appStore;

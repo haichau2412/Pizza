@@ -164,6 +164,25 @@ export const DropdownItem = styled(Link)`
     }
 `;
 
+export const DropdownLogout = styled.a`
+    
+    display: inline-block;
+    text-align: center;
+    width: 10rem;
+    text-decoration: none;
+    padding: 1rem;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+
+    :hover {
+        border-radius: 8px;
+        background-color: ${props => props.theme.colors.background}
+    }
+    :visited {
+        color: #000;
+    }
+`;
 
 
 

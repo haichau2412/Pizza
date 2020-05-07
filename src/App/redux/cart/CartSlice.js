@@ -62,4 +62,3 @@ const { actions, reducer } = cartSlice;
 export const { addToCart, add, reduce } = actions;
 
 export default reducer;
-
