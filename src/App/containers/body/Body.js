@@ -3,11 +3,11 @@ import {
     Route,
     Switch
 } from "react-router-dom";
-import { StyledBody } from './StyledBody';
 import User from '../../components/user/User';
 import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
+
 
 const routes = [
     {
@@ -34,15 +34,15 @@ const routes = [
 ]
 
 const Body = () => {
+
     return (
         <Switch>
             {routes.map((route, index) => {
                 return <Route key={index} exact={route.exact} path={`${route.path}`}>
-                        <route.component />
+                    <route.component />
                 </Route>
             })}
         </Switch>
-
     )
 }
 

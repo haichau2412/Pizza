@@ -1,6 +1,5 @@
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-import Profile from './Profile';
 import Logout from './Logout';
 
 const routes = {
@@ -16,11 +15,6 @@ const routes = {
             component: SignUp
         }],
     authenticated: [
-        {
-            path: '/auth/profile',
-            content: 'Profile',
-            component: Profile
-        },
         {
             path: '/auth/logout',
             content: 'Logout',

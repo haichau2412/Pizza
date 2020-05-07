@@ -1,11 +1,12 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import {
     useFormik
 } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormTitle, InputField, Label, Input, Button, FormContainer, Wrapper } from './StyledAuth';
-import { signup } from '../../service/UserServices';
 import { authUserbySignup } from '../../redux/auth/AuthSlice';
+import { validateSignup } from './validator';
+import { history } from '../../service/History';
 
 const initialValues = {
     username: '',
@@ -14,60 +15,15 @@ const initialValues = {
     confirmedPassword: ''
 };
 
-
-
-const onSubmit = async (values, { setSubmitting, resetForm }) => {
-
-    setSubmitting(true);
-    try {
-        const tooken = await signup(values);
-        console.log(tooken);
-    }
-    catch (error) {
-
-    }
-    setSubmitting(false);
-};
-
-const validate = (values) => {
-    const errors = {};
-    const { username, password, email, confirmedPassword } = values;
-    if (!email) {
-        errors.email = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-        errors.email = 'Invalid email address';
-    }
-
-    if (!username) {
-        errors.username = 'Required';
-    }
-
-    if (!password) {
-        errors.password = 'Required';
-    }
-
-    if (!confirmedPassword) {
-        errors.password = 'Required';
-    }
-    else if (confirmedPassword !== password) {
-        errors.confirmedPassword = 'ConfirmedPassword not matching'
-    }
-    return errors;
-
-}
-
-const getName = (state) => {
-    return state.auth
+const getAuthenticated = (state) => {
+    return state.auth.authenticated
 };
 
 const SignUp = () => {
 
-    const authInfo = useSelector(getName);
+    const isAuthenticated = useSelector(getAuthenticated);
+
     const dispatch = useDispatch();
-
-    const memoizedCallback = useCallback(() => console.log(authInfo), [authInfo]);
-
-    memoizedCallback();
 
     const formik = useFormik({
         initialValues,
@@ -75,15 +31,20 @@ const SignUp = () => {
 
             setSubmitting(true);
             try {
-                dispatch(authUserbySignup(values));
+                await dispatch(authUserbySignup({ values, type: 'signup' }));
+
             }
             catch (error) {
 
             }
             setSubmitting(false);
         },
-        validate
+        validate: validateSignup
     })
+
+    if (isAuthenticated) {
+        history.push('/home');
+    }
 
     const { errors, values, handleChange, handleSubmit, isSubmitting } = formik;
     const { username, password, email, confirmedPassword } = values;
@@ -92,7 +53,7 @@ const SignUp = () => {
         <Wrapper>
             <FormContainer onSubmit={handleSubmit}>
                 <FormTitle>Sign Up</FormTitle>
-                <form action="#">
+                <form>
                     <InputField>
                         <Label htmlFor="username">Username</Label>
                         <Input autoFocus type="text" id="username" name="username" onChange={handleChange} value={username} />
@@ -116,7 +77,6 @@ const SignUp = () => {
                     <Button disabled={isSubmitting} type="submit">Sign up</Button>
                 </form>
             </FormContainer>
-
         </Wrapper >
     )
 }

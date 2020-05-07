@@ -9,12 +9,12 @@ const handleResponse = async (response) => {
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
-                logout();
+
             }
             const error = (result.errorMessage) || response.statusText;
             return Promise.reject(error);
         }
-        return { token: result.token };
+        return { ...result };
     }
     catch (error) {
         return { error };
@@ -22,24 +22,41 @@ const handleResponse = async (response) => {
 
 }
 
-export const signup = async (info) => {
+export const authUser = async ({ values, type }) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...info })
+        body: JSON.stringify({ ...values })
+    }
+    let response;
+    if (type === 'signup') {
+        response = await fetch(`${API_HOST}/registration`, requestOptions);
+    }
+    if (type === 'login') {
+        response = await fetch(`${API_HOST}/login`, requestOptions);
     }
 
-    const response = await fetch(`${API_HOST}/registration`, requestOptions);
     const data = await handleResponse(response);
 
     return data;
 }
 
-const logout = () => {
+// export const signin = async (info) => {
+//     const requestOptions = {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ ...info })
+//     }
 
-}
+//     const response = await fetch(`${API_HOST}/signin`, requestOptions);
+//     const data = await handleResponse(response);
+
+//     return data;
+// }
+
+
 
 export default {
-    signup,
+    authUser,
     handleResponse
 }

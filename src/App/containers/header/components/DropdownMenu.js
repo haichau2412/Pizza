@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, DropdownItem } from './StyledHeader';
 
+
 const routes = {
     unauthenticated: [
         {
@@ -13,18 +14,14 @@ const routes = {
         }],
     authenticated: [
         {
-            path: '/auth/profile',
-            content: 'Profile',
-        },
-        {
             path: '/auth/logout',
-            content: 'Logout',
+            content: 'Log out',
         }]
 }
-const status = 'unauthenticated';
 
-const DropdownMenu = () => {
 
+const DropdownMenu = ({ auth }) => {
+    const status = auth ? 'authenticated' : 'unauthenticated';
     return (
         <Dropdown>
             {routes[status].map((route, index) => {

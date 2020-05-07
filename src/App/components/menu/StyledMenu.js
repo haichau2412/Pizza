@@ -26,7 +26,7 @@ export const ImageContainer = styled.div`
 export const Image = styled.div`
     width: 100%;
     height: 100%;
-    background-image: url(https://lh3.googleusercontent.com/-mpEedD3P6FiRoMrAZ4wnvm8_nVdA-cwam6eWo-fi3l8E8a3hHFsKJcBxlBV7SXL__oF1ZPzaMYZYMyduG9a=w1864-h949-rw);
+    background-image: url(${props => props.image});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -44,6 +44,7 @@ export const StyledItem = styled.div`
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     background-color: #fff;
+    position:relative;
 
 
     :hover ${Image} {
@@ -57,31 +58,40 @@ export const StyledItem = styled.div`
     }
 
     p {
+        display: inline-block;
         padding: 0 2rem;
         grid-column: 1 / -1;
         font-size: 1.6rem;
+
+        
     }
+
+    p:nth-of-type(1){
+        height: 8rem;
+
+        }
 
     h5 {
         grid-row: 1 / 2;
         grid-column: 1 / -1;
         justify-self: center;
-        align-self: end;
+        align-self: start;
         z-index: 3;
-        width: 60%;
+        width: 80%;
         font-size: 1.6rem;
         text-align: center;
         padding: 1.25rem;
         background-color: ${props => props.theme.colors.primary};
         color: #fff;
-        transform: translateY(10%);
+        transform: translateY(20rem);
     }
 
     button {
+        align-self: end;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         font-size: 1.6rem;
-        padding: 1rem;
+        padding: 1rem 0;
         grid-column: 1 / -1;
         border: none;
         outline: none;

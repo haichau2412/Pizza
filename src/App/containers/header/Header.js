@@ -2,12 +2,19 @@ import React from 'react';
 import { StyledHeader } from './components/StyledHeader';
 import HeaderNav from './components/HeaderNav';
 import HeaderEnd from './components/HeaderEnd';
+import { useSelector } from 'react-redux';
 
+
+const getAuthenticated = (state) => {
+    return state.auth.authenticated
+};
 
 const Header = () => {
+   
+    const isAuthenticated = useSelector(getAuthenticated);
     return (
         <StyledHeader>
-            <HeaderNav />
+            <HeaderNav auth={isAuthenticated} />
             <HeaderEnd />
         </StyledHeader>
     )

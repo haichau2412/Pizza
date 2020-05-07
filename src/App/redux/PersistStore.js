@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: [ 'user','cart'], //Things u want to persist
+    whitelist: ['auth', 'cart'], //Things u want to persist
     blacklist: [], //Things u dont
 };
 

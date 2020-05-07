@@ -1,8 +1,7 @@
 import React from 'react';
-import { LeftHeader, Logo, ListNav, NavButton } from './StyledHeader';
-import logo from '../../../assets/logo.svg';
+import { LeftHeader, ListNav, NavButton } from './StyledHeader';
 
-const HeaderNav = () => {
+const HeaderNav = ({ auth }) => {
 
     return (
         <LeftHeader>
@@ -11,6 +10,7 @@ const HeaderNav = () => {
                 <li><NavButton to="/home">Home</NavButton></li>
                 <li><NavButton to="/menu">Menu</NavButton></li>
                 <li><NavButton to="/cart">Cart</NavButton></li>
+                {auth ? <li><NavButton to="/history">History</NavButton></li> : null}
             </ListNav>
         </LeftHeader>
     )

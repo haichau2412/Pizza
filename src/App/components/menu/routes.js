@@ -4,12 +4,12 @@ const routes = [
         content: 'Pizza'
     },
     {
-        path: '/menu/drinks',
-        content: 'Drinks'
+        path: '/menu/drink',
+        content: 'Drink'
     },
     {
-        path: '/menu/cake',
-        content: 'Cake'
+        path: '/menu/dessert',
+        content: 'Dessert'
     }
 ]
 

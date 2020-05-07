@@ -1,12 +1,11 @@
-import React from 'react';
-import { Wrapper } from './StyledAuth';
+import React from 'react'
 
 function Logout() {
     return (
-        <Wrapper>
-            Now you are in Logout page
-        </Wrapper>
+        <div>
+
+        </div>
     )
 }
 
-export default Logout;
+export default Logout

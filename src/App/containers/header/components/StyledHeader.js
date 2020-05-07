@@ -83,8 +83,6 @@ export const RightHeader = styled.div`
         font-size: 1.6rem;
         
     }
-
-
 `;
 
 
@@ -154,6 +152,8 @@ export const DropdownItem = styled(Link)`
     width: 10rem;
     text-decoration: none;
     padding: 1rem;
+    text-decoration: none;
+    color: #000;
 
     :hover {
         border-radius: 8px;
