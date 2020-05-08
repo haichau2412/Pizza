@@ -2,18 +2,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledCart = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 8vh;
     padding: 5rem;
-    
-
-    & > * {
-    border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(0,0,0,.2);
-    background-color: #fff;
-    }
 
     @media (max-width: 1024px) {
         padding: 3rem;
@@ -51,6 +45,9 @@ export const StyledInfo = styled.div`
     margin-right: 5rem;
     font-size: 1.2rem;
     padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    background-color: #fff;
 
     @media (max-width: 1024px) {
         margin-bottom: 2rem;
@@ -214,15 +211,23 @@ export const InfoFrame = styled.div`
         }
     }
 `;
+export const StyledOrder = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-
+`;
 
 export const StyledPrice = styled.div`
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    background-color: #fff;
     flex: 0 0 25%;
     align-self: flex-start;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 2rem;
+    
 
     p{
         padding-top: 2rem;
@@ -258,18 +263,87 @@ export const NavigationButton = styled(Link)`
         transition: background-color .1s;
         cursor: pointer;
         text-decoration: none;
-        text-align: center;
+        display: flex;
+        align-items: center;
+        line-height: 1;
 
         :hover{
             background-color:  ${props => props.theme.colors.primaryLight};
         }
 
-    &:nth-of-type(1) {
         border-right: 2px solid ${props => props.theme.colors.primaryLight};
         border-bottom-left-radius: 8px;
+    
+`;
+
+export const CheckoutButton = styled.button`
+
+        font-size: 1.6rem;
+        padding: 1rem;
+        border: none;
+        outline: none;
+        background-color:  ${props => props.theme.colors.primary};
+        color: #fff;
+        transition: background-color .1s;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+
+        :hover{
+            background-color:  ${props => props.theme.colors.primaryLight};
+        }
+        border-bottom-right-radius: 8px;
+`;
+
+export const CheckoutForm = styled.div`
+
+    
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    font-size: 1.6rem;
+    
+
+    form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     }
 
-    &:nth-of-type(2) {
-        border-bottom-right-radius: 8px;
+    button {
+        outline:none;
+        background-color: ${(props) => props.theme.colors.primary};
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+        display: block;
+        margin: 1rem auto;
+        cursor: pointer;
+        font-size: 1.6rem;
+        border-radius: 2rem;
+    }
+
+    textarea {
+        height: 15rem;
+        margin: 2rem auto;
+        font-size: 1.6rem;
+        padding: .5rem;
+        width: 90%;
+        border-radius: .5rem;
+        display: block;
+        line-height: 2;
+        border: 2px solid ${(props) => props.theme.colors.primary};
+        outline:none;    
+    }
+    label {
+        font-weight: 900;
+        margin: 2rem 0;
+        text-transform: uppercase;
+        color: ${(props) => props.theme.colors.primary};
     }
 `;

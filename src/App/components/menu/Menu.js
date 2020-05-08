@@ -5,7 +5,8 @@ import routes from './routes';
 import { getProducts } from '../../service/ProductServices';
 
 const Menu = () => {
-    const [products, setProducts] = React.useState({ Pizza: [], Drinks: [], Cake: [] });
+
+    const [products, setProducts] = React.useState({ Pizza: [], Drink: [], Dessert: [] });
     const [category, setCategory] = React.useState('Pizza');
 
     const handleClick = (data) => {
@@ -20,6 +21,7 @@ const Menu = () => {
             }
             fetchData();
         }, []);
+
     return (
         <>
             <Sidebar routes={routes} handleClick={handleClick} />

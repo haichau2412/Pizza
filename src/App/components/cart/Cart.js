@@ -1,16 +1,37 @@
 import React from 'react'
-import { StyledCart, StyledInfo, TableHeading } from './StyledCart'
+import { StyledCart, StyledInfo, TableHeading, CheckoutForm } from './StyledCart'
 import Product from './Product';
-import Price from './Price'
-import { useSelector } from 'react-redux';
+import OrderCheckout from './OrderCheckout'
+import { useSelector, useDispatch } from 'react-redux';
+import PopupForm from './PopupForm';
+
+
+const getAuthenticated = (state) => {
+    return state.auth.authenticated;
+};
+
 
 
 const getCart = (state) => state.cart
+
 function Cart() {
+
+    const isAuthenticated = useSelector(getAuthenticated);
+
+    const [showPopup, setShowPopup] = React.useState(false);
 
     const cart = useSelector(getCart);
     const keys = Object.keys(cart.products);
     const { items, total } = cart
+
+    const handlePopup = React.useCallback(() => {
+        if (!isAuthenticated) {
+            alert('You have to login before checkout')
+        }
+        else {
+            setShowPopup(pre => !pre);
+        }
+    }, [isAuthenticated]);
 
     return (
         <StyledCart>
@@ -25,7 +46,7 @@ function Cart() {
                     return <Product key={index} product={cart.products[productId]} productId={productId} />
                 })}
             </StyledInfo>
-            <Price data={{ items, total }} />
+            <OrderCheckout showPopup={showPopup} handleClick={handlePopup} data={{ items, total }} />
         </StyledCart>
     )
 }

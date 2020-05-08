@@ -38,7 +38,30 @@ export const authUser = async ({ values, type }) => {
 
     const data = await handleResponse(response);
 
-    console.log(data)
+    return data;
+}
+
+export const checkout = async ({ address, cart, token, totalPrice }) => {
+    const keys = Object.keys(cart);
+    const formattedCart = keys.map((producID, index) => {
+        return {
+            producID,
+            quantity: cart[producID].quantity
+        }
+    })
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token
+        },
+        body: JSON.stringify({ address, cart: formattedCart, totalPrice })
+    }
+
+    const response = await fetch(`${API_HOST}/orders`, requestOptions);
+
+    const data = await handleResponse(response);
+
     return data;
 }
 
@@ -59,5 +82,7 @@ export const authUser = async ({ values, type }) => {
 
 export default {
     authUser,
-    handleResponse
+    handleResponse,
+    checkout,
+
 }

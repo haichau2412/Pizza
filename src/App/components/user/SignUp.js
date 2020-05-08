@@ -48,7 +48,7 @@ const SignUp = () => {
         return () => {
             dispatch(resetMsg());
         };
-    }, [message,dispatch]);
+    }, [message, dispatch]);
 
     const { errors, values, handleChange, handleSubmit, isSubmitting } = formik;
     const { username, password, email, confirmedPassword } = values;
