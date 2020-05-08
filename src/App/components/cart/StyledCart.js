@@ -13,7 +13,6 @@ export const StyledCart = styled.div`
         padding: 3rem;
         margin-top: 8vh;
         flex-direction: column;
-       
     }
 `;
 
@@ -30,6 +29,7 @@ export const TableHeading = styled.div`
         justify-self: center;
         font-weight: 800;
     }
+
     p:nth-child(2) {
         grid-column: 3 / 4;
     }
@@ -43,7 +43,7 @@ export const TableHeading = styled.div`
 export const StyledInfo = styled.div`
     flex: 0 0 70%;
     margin-right: 5rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
@@ -63,6 +63,7 @@ export const Tag = styled.div`
 
 export const Description = styled.p`
     justify-self: start;
+    font-size: 1.2rem;
 `;
 
 export const Cost = styled.p`
@@ -95,7 +96,9 @@ export const Quantity = styled.div`
             width: 30%;
             height: 30%;
         }
+
     }
+
     p {
         padding: 0 1rem;
         text-align: center;
@@ -107,7 +110,6 @@ export const Quantity = styled.div`
 `;
 
 export const Image = styled.div`
-    
     margin: 1rem 0;
     height: 10rem;
     width: 80%;
@@ -215,7 +217,6 @@ export const StyledOrder = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
 `;
 
 export const StyledPrice = styled.div`
@@ -244,8 +245,6 @@ export const StyledPrice = styled.div`
         padding-left: 2rem;
         font-weight: 800;
     }
-
-    
 
     @media (max-width: 1024px) {
         width: 100%;
@@ -278,6 +277,7 @@ export const NavigationButton = styled(Link)`
 
 export const CheckoutButton = styled.button`
 
+        font-family: monospace;
         font-size: 1.6rem;
         padding: 1rem;
         border: none;
@@ -297,7 +297,6 @@ export const CheckoutButton = styled.button`
 
 export const CheckoutForm = styled.div`
 
-    
     margin-top: 2rem;
     background-color: #fff;
     border-radius: 1rem;
@@ -305,16 +304,15 @@ export const CheckoutForm = styled.div`
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     font-size: 1.6rem;
     
-
     form {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    }
 
     button {
+        font-family: monospace;
         outline:none;
         background-color: ${(props) => props.theme.colors.primary};
         border: none;
@@ -326,6 +324,7 @@ export const CheckoutForm = styled.div`
         cursor: pointer;
         font-size: 1.6rem;
         border-radius: 2rem;
+        
     }
 
     textarea {
@@ -346,4 +345,7 @@ export const CheckoutForm = styled.div`
         text-transform: uppercase;
         color: ${(props) => props.theme.colors.primary};
     }
+    }
+
+    
 `;

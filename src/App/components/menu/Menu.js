@@ -6,7 +6,11 @@ import { getProducts } from '../../service/ProductServices';
 
 const Menu = () => {
 
-    const [products, setProducts] = React.useState({ Pizza: [], Drink: [], Dessert: [] });
+    const [products, setProducts] = React.useState({
+        Pizza: [],
+        Drink: [],
+        Dessert: []
+    });
     const [category, setCategory] = React.useState('Pizza');
 
     const handleClick = (data) => {

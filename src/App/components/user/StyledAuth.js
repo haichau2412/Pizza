@@ -12,16 +12,11 @@ export const FormContainer = styled.div`
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     font-size: 1.6rem;
-
+    
     form {
+        
         width: 30rem;
     }
-
-    /* @media (max-width: 1024px) {
-        font-size: 1.2rem;
-        padding: 2rem;
-        
-    } */
 
     @media (max-width: 768px) {
         font-size: 1.2rem;
@@ -30,11 +25,9 @@ export const FormContainer = styled.div`
         }   
         
     }
-
-    
-
 `
 export const FormTitle = styled.span`
+    font-family: monospace;
     display: block;
     font-size: 3rem;
     color: ${(props) => props.theme.colors.primary};
@@ -43,6 +36,7 @@ export const FormTitle = styled.span`
 `;
 
 export const Button = styled.button`
+    font-family: monospace;
     outline:none;
     background-color: ${(props) => props.theme.colors.primary};
     border: none;

@@ -4,6 +4,7 @@ import CartIcon from './CartIcon';
 import UserDashboard from './UserDashBoard';
 
 const HeaderEnd = () => {
+
     return (
         <RightHeader>
             <CartIcon />

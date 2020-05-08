@@ -3,7 +3,6 @@ import config from '../config/environments';
 const { API_HOST } = config;
 
 const handleResponse = async (response) => {
-
     try {
         const result = await response.json();
         if (!response.ok) {
@@ -23,12 +22,15 @@ const handleResponse = async (response) => {
 }
 
 export const authUser = async ({ values, type }) => {
+
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...values })
     }
+
     let response;
+
     if (type === 'signup') {
         response = await fetch(`${API_HOST}/registration`, requestOptions);
     }

@@ -8,12 +8,10 @@ export const authUser = createAsyncThunk(
         if (authenticating === false || requestId !== currentRequestId) {
             return
         }
-
         const data = await UserServices.authUser(info);
         return { ...data, username: info.values.username };
     }
 )
-
 
 export const authSlice = createSlice({
     name: 'auth',

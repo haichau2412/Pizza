@@ -4,6 +4,7 @@ import Item from './Item';
 
 
 function ProductView({ products }) {
+
     return (
         <ProductFrame>
             {products.map((product, index) => {

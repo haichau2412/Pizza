@@ -3,8 +3,8 @@ import { StyledItem, ImageContainer, Image } from './StyledMenu';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cart/CartSlice';
 
-
 const Item = ({ product }) => {
+
     const dispatch = useDispatch();
     const { photo, name, description, price } = product;
 

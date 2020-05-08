@@ -2,7 +2,9 @@ import React from 'react';
 import { StyledBanner, StyledHr, LinkButton } from './StyledHome';
 
 const Banner = () => {
+
     return (
+
         <StyledBanner>
             <h1>PYCO PIZZA</h1>
             <StyledHr />

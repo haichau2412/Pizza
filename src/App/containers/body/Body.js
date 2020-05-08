@@ -8,7 +8,6 @@ import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
 
-
 const routes = [
     {
         path: '/',

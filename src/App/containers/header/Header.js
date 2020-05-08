@@ -5,13 +5,12 @@ import HeaderEnd from './components/HeaderEnd';
 import { useSelector } from 'react-redux';
 
 
-const getAuthenticated = (state) => {
-    return state.auth.authenticated
-};
+const getAuthenticated = (state) => state.auth.authenticated;
 
 const Header = () => {
-   
+
     const isAuthenticated = useSelector(getAuthenticated);
+    
     return (
         <StyledHeader>
             <HeaderNav auth={isAuthenticated} />

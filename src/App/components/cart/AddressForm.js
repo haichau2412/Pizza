@@ -9,20 +9,13 @@ const initialValues = {
     address: '',
 };
 
-const getToken = (state) => {
-    return state.auth.token;
-};
+const getToken = (state) => state.auth.token;
+const getMsg = (state) => state.cart.msg;
 
-const getMsg = (state) => {
-    return state.cart.msg
-};
-
-const PopupForm = () => {
+const AddressForm = () => {
 
     const message = useSelector(getMsg);
-
     const token = useSelector(getToken);
-
     const dispatch = useDispatch();
 
     const formik = useFormik({
@@ -68,7 +61,7 @@ const PopupForm = () => {
         <>
             <Alert alert={makeAlert} />
             <CheckoutForm onSubmit={handleSubmit}>
-                <form action="#">
+                <form>
                     <label htmlFor="address">Address for shipping</label>
                     <textarea type="text" id="address" name="address" onChange={handleChange} value={address} />
                     {errors.address ? <div>{errors.address}</div> : null}
@@ -79,4 +72,4 @@ const PopupForm = () => {
     )
 }
 
-export default React.memo(PopupForm);
+export default React.memo(AddressForm);

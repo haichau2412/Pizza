@@ -14,9 +14,7 @@ const getAuthInfo = (state) => {
 const UserDashboard = () => {
 
     const authInfo = useSelector(getAuthInfo);
-
     const { authenticated, currentUser } = authInfo;
-
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = useCallback(

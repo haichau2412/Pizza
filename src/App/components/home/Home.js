@@ -1,9 +1,9 @@
 import React from 'react'
 import Banner from './Banner'
 import { ProductImage, StyledHome, DetailBox } from './StyledHome'
-import Process from './Process'
 
 function Home() {
+
     return (
         <StyledHome>
             <DetailBox>
@@ -12,7 +12,6 @@ function Home() {
             <ProductImage />
         </StyledHome>
     )
-
 }
 
 export default Home

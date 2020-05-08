@@ -9,6 +9,7 @@ export const ProductFrame = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     column-gap: 5rem;
     row-gap: 3rem;
+    
     @media (max-width: 768px) {
         margin-left: 0rem;
         margin-top: 15vh;
@@ -36,10 +37,9 @@ export const Image = styled.div`
 
 export const StyledItem = styled.div`
     
-
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 3.5rem;
+    grid-row-gap: 2.5rem;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
@@ -62,14 +62,11 @@ export const StyledItem = styled.div`
         padding: 0 2rem;
         grid-column: 1 / -1;
         font-size: 1.6rem;
-
-        
     }
 
     p:nth-of-type(1){
-        height: 8rem;
-
-        }
+        height: 10rem;
+    }
 
     h5 {
         grid-row: 1 / 2;
@@ -87,6 +84,7 @@ export const StyledItem = styled.div`
     }
 
     button {
+        font-family: monospace;
         align-self: end;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;

@@ -22,6 +22,7 @@ const handleResponse = async (response) => {
 }
 
 export const getProducts = async () => {
+
     const response = await fetch(`${API_HOST}/products`);
     const data = await handleResponse(response);
 

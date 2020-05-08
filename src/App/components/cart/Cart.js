@@ -1,28 +1,22 @@
-import React from 'react'
-import { StyledCart, StyledInfo, TableHeading, CheckoutForm } from './StyledCart'
+import React from 'react';
+import { StyledCart, StyledInfo, TableHeading } from './StyledCart';
 import Product from './Product';
-import OrderCheckout from './OrderCheckout'
-import { useSelector, useDispatch } from 'react-redux';
-import PopupForm from './PopupForm';
-
+import OrderCheckout from './OrderCheckout';
+import { useSelector } from 'react-redux';
 
 const getAuthenticated = (state) => {
     return state.auth.authenticated;
 };
 
+const getCart = (state) => state.cart;
 
-
-const getCart = (state) => state.cart
-
-function Cart() {
+const Cart = () => {
 
     const isAuthenticated = useSelector(getAuthenticated);
-
     const [showPopup, setShowPopup] = React.useState(false);
-
     const cart = useSelector(getCart);
     const keys = Object.keys(cart.products);
-    const { items, total } = cart
+    const { items, total } = cart;
 
     const handlePopup = React.useCallback(() => {
         if (!isAuthenticated) {
@@ -51,4 +45,4 @@ function Cart() {
     )
 }
 
-export default Cart
+export default Cart;

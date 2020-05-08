@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import pizza from "../../assets/pizza.png";
 import { Link } from 'react-router-dom';
 
@@ -74,8 +74,6 @@ export const LinkButton = styled(Link)`
   background-color: ${props => props.theme.colors.primaryLight};
   text-transform: uppercase;
   cursor: pointer;
-
-  
 `;
 
 
@@ -91,7 +89,6 @@ export const ProductImage = styled.div`
   background-image: url(${pizza});
   background-repeat: no-repeat;
   background-size: 100%;
-
 `;
 
 export const StyledProcess = styled.div`

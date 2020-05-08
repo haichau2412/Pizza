@@ -5,12 +5,10 @@ import {
 } from 'react-router-dom';
 import routes from './routes';
 
-const status = 'unauthenticated';
-
 function User() {
     return (
         <Switch>
-            {routes[status].map((route, index) => {
+            {routes.map((route, index) => {
                 return (
                     <Route key={index} path={`${route.path}`}>
                         <route.component />

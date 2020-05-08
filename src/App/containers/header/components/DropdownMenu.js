@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownItem, DropdownLogout } from './StyledHeader';
+import { Dropdown, DropdownItem } from './StyledHeader';
 import { useDispatch } from 'react-redux';
 
 const routes = {
@@ -19,10 +19,11 @@ const routes = {
         }]
 }
 
-
 const DropdownMenu = ({ auth }) => {
+
     const dispatch = useDispatch();
     const status = auth ? 'authenticated' : 'unauthenticated';
+
     return (
         <Dropdown>
             {auth || routes[status].map((route, index) => {
