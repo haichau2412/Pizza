@@ -38,6 +38,7 @@ export const authUser = async ({ values, type }) => {
 
     const data = await handleResponse(response);
 
+    console.log(data)
     return data;
 }
 

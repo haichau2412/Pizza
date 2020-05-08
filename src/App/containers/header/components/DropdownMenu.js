@@ -14,7 +14,7 @@ const routes = {
         }],
     authenticated: [
         {
-            path: '/auth/logout',
+            path: '/home',
             content: 'Log out',
         }]
 }
@@ -29,7 +29,7 @@ const DropdownMenu = ({ auth }) => {
                 return <DropdownItem key={index} to={route.path}>{route.content}</DropdownItem>
             })}
             {!auth || routes[status].map((route, index) => {
-                return <DropdownLogout onClick={() => dispatch({ type: 'logout' })} key={index} >{route.content}</DropdownLogout>
+                return <DropdownItem to={route.path} onClick={() => dispatch({ type: 'logout' })} key={index} >{route.content}</DropdownItem>
             })}
         </Dropdown>
     )
