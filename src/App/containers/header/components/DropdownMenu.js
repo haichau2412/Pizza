@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, DropdownItem } from './StyledHeader';
 import { useDispatch } from 'react-redux';
+import useClickOutside from './useClickOutSide';
 
 const routes = {
     unauthenticated: [
@@ -19,13 +20,17 @@ const routes = {
         }]
 }
 
-const DropdownMenu = ({ auth }) => {
+const DropdownMenu = ({ auth, toggle }) => {
 
+    const menuRef = React.useRef();
+    const onCLickOutside = () => toggle();
+
+    useClickOutside(menuRef, onCLickOutside);
     const dispatch = useDispatch();
     const status = auth ? 'authenticated' : 'unauthenticated';
 
     return (
-        <Dropdown>
+        <Dropdown ref={menuRef} >
             {auth || routes[status].map((route, index) => {
                 return <DropdownItem key={index} to={route.path}>{route.content}</DropdownItem>
             })}
@@ -36,4 +41,4 @@ const DropdownMenu = ({ auth }) => {
     )
 }
 
-export default DropdownMenu;
+export default React.memo(DropdownMenu);

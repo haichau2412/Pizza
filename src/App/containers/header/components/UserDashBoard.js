@@ -28,7 +28,7 @@ const UserDashboard = () => {
         <StyledUserDashboard onClick={toggleMenu} >
             <img src={photo} alt="User" />
             <span>{currentUser || 'Anonymous'}</span>
-            {isOpen && <DropdownMenu auth={authenticated} />}
+            {isOpen && <DropdownMenu toggle={toggleMenu} auth={authenticated} />}
         </StyledUserDashboard>
     )
 }
