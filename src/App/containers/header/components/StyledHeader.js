@@ -132,7 +132,7 @@ export const StyledUserDashboard = styled.div`
 export const Dropdown = styled.div`
 
     position: absolute;
-    top: 60px;
+    top: 6rem;
     right: 0;
     background-color: #fff;
     border-radius: 8px;
@@ -141,7 +141,9 @@ export const Dropdown = styled.div`
     flex-direction: column;
     font-size: 1.6rem;
   
-    
+    @media (max-width: 768px) {
+     top: 6.5rem;
+    }
 
 `;
 

@@ -26,7 +26,7 @@ export const StyledHr = styled.hr`
   display: block;
   height: .5rem;
   width:  50rem;
-  background-image: linear-gradient(90deg, red 0%, red 33%, yellow 33%, yellow 66% , green 66% , green 100%);
+  background-image: linear-gradient(90deg, red 0%, red 33%, #f1c40f 33%, #f1c40f 66% , green 66% , green 100%);
 
 `;
 
@@ -36,14 +36,20 @@ export const StyledBanner = styled.section`
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-    padding-top: 15vh;
+    padding-top: 7vh;
     justify-content: center;
 
     
     h1 {
-        display: inline;
+        display: inline-block;
         margin: 5rem auto;
-        font-size: 8rem;
+        margin-bottom: 2rem;
+        font-size: 10rem;
+        line-height: 10rem;
+        color: ${props => props.theme.colors.h1};
+        padding: 2rem;
+        border: 2px double ${props => props.theme.colors.h1};
+        border-width: 2rem;
     }
 
     ul {
@@ -51,7 +57,8 @@ export const StyledBanner = styled.section`
     }
 
     li {
-        
+      line-height: 3rem;
+      display: block;
         list-style: none;
         font-size: 3rem;
         :not(:first-child){
@@ -59,6 +66,16 @@ export const StyledBanner = styled.section`
         }
     }
 
+    @media (max-width: 768px) {
+      h1{
+        font-size: 6rem;
+      }
+
+      li {
+        line-height: 2rem;
+        font-size: 2rem;
+      }
+    }
     
 `;
 
@@ -71,9 +88,17 @@ export const LinkButton = styled(Link)`
   outline: none;
   border: none;
   border-radius: 3rem;
-  background-color: ${props => props.theme.colors.primaryLight};
+  background-color: ${props => props.theme.colors.primary};
   text-transform: uppercase;
   cursor: pointer;
+
+  :hover {
+    background-color: ${props => props.theme.colors.primaryLight};
+  }
+
+  @media (max-width: 768px) {
+     font-size: 2rem;
+    }
 `;
 
 
