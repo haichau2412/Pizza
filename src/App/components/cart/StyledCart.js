@@ -35,15 +35,12 @@ export const StyledCart = styled.div`
     margin-top: 8vh;
     padding: 5rem;
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
         padding: 3rem;
         margin-top: 8vh;
         flex-direction: column;
     }
-    @media (max-width: 375px) {
-        margin-top: 15vh;
 
-    }
 `;
 
 
@@ -64,7 +61,7 @@ export const TableHeading = styled.div`
         grid-column: 3 / 4;
     }
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
         display: none;
     }
 
@@ -79,7 +76,7 @@ export const StyledInfo = styled.div`
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     background-color: #fff;
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
         margin-bottom: 2rem;
         margin-right: 0;
         align-self: stretch;
@@ -88,7 +85,7 @@ export const StyledInfo = styled.div`
 
 export const Empty = styled.div`
     text-align: center;
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
         
     }
 `;
@@ -197,7 +194,7 @@ export const InfoFrame = styled.div`
         grid-row: 1;
     }
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
     
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -255,7 +252,8 @@ export const StyledOrder = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    @media (max-width: 1024px) {
+
+    @media only screen and (max-width: 1000px) {
         width: 100%;
     }
 `;
@@ -289,7 +287,7 @@ export const StyledPrice = styled.div`
         font-weight: 800;
     }
 
-    @media (max-width: 1024px) {
+    @media only screen and (max-width: 1000px) {
         width: 100%;
     }
 `;

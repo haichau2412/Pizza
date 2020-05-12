@@ -12,8 +12,8 @@ const CartIcon = () => {
     const { items } = cart;
 
     return (
-        <StyledCartIcon to="/cart">
-            <svg>
+        <StyledCartIcon title="Shopping cart" to="/cart">
+            <svg >
                 <use href={sprite + '#icon-cart'} />
             </svg>
             <span>{items}</span>

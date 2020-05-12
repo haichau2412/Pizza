@@ -4,20 +4,15 @@ export const ProductFrame = styled.div`
     margin-left: 10rem;
     padding: 3rem; 
     margin-top: 8vh;
-    padding-left: 5rem;
+    padding-left: 5rem; 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     column-gap: 5rem;
     row-gap: 3rem;
     
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 1000px) {
         margin-left: 0rem;
         margin-top: 15vh;
-    }
-
-    @media (max-width: 375px) {
-        margin-top: 24vh;
-        padding: 1rem;
     }
 `;
 
@@ -105,6 +100,12 @@ export const StyledItem = styled.div`
 
         :hover,:link{
             background-color:  ${props => props.theme.colors.primaryLight};
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        p,h5,button {
+            font-size: 1.4rem;
         }
     }
 

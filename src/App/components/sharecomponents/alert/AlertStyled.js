@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledAlert = styled.div`
-
     display: flex;
     align-items: center;
     position: fixed;
@@ -16,26 +15,43 @@ export const StyledAlert = styled.div`
     transform: ${props => props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)'};
     z-index: 1003;
 
+    @media only screen and (max-width: 1000px) {
+        top: ${props => props.cart ? '8%' : '14%'}; 
+    }
+
     svg {
         margin: .5rem 1rem;
         opacity: 1;
         width: 2rem;
         height: 2rem;
         fill: ${props => props.theme.colors[props.status]};
+
+        @media only screen and (max-width: 600px) {
+                width: 1.6rem;
+            height: 1.6rem;
+    }
     }   
 
     p {
+        margin-right: 1rem;
+        text-align: center;
+        display: inline-block;
+        flex-grow: 2;
         line-height: 1.6rem;
         font-size: 1.6rem;
         color: ${props => props.theme.colors[`bt${props.status}`]};
         font-weight: 600;
+
+        @media only screen and (max-width: 600px) {
+            line-height: 1.4rem;
+            font-size: 1.4rem;
+    }
     }
 
     button {
-        margin-left: 1rem;
+        margin-right: 0;
         padding: .5rem;
         align-self: stretch;
-        justify-self: stretch;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,10 +64,17 @@ export const StyledAlert = styled.div`
             fill: #fff;
             width: 1.6rem;
             height: 1.6rem;
+
+            @media only screen and (max-width: 600px) {
+                width: 1.4rem;
+            height: 1.4rem;
+    }
         }
 
         
 
     }
+
+
 
 `;

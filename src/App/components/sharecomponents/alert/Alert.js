@@ -2,9 +2,9 @@ import React from 'react';
 import { StyledAlert } from './AlertStyled';
 import sprite from '../../../assets/sprite.svg';
 
-const Alert = ({ status, msg, isVisible, handleClick }) => {
+const Alert = ({ cart, status, msg, isVisible, handleClick }) => {
     return (
-        <StyledAlert status={status} isVisible={msg ? isVisible : false}>
+        <StyledAlert cart={cart} status={status} isVisible={msg ? isVisible : false}>
             <svg>
                 <use href={sprite + `#icon-${status}`} />
             </svg>

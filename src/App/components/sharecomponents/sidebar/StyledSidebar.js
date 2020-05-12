@@ -13,15 +13,11 @@ export const StyledSidebar = styled.nav`
     top: 8vh;
     
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 1000px) {
         flex-direction: row;
         width: 100%;
         height: auto;
-        z-index: 1000;
-    }
-
-    @media (max-width: 375px) {
-        top: 16vh;
+        z-index: 1004;
     }
     
 `;
@@ -40,11 +36,11 @@ export const StyledItem = styled.div`
         position: absolute;
         top: 0;
         height: 100%;
-        width: 3px;
+        width: 5px;
         background-color: ${(props) => props.theme.colors.primary};
         transform:  scaleY(0);
-        transition: transform .3s,
-                    width .3s cubic-bezier(.99,.01,.01,.99) .2s,
+        transition: transform .2s,
+                    width .2s cubic-bezier(.99,.01,.01,.99) .2s,
                     background-color .2s;
                     
     }
@@ -57,7 +53,7 @@ export const StyledItem = styled.div`
         background-color: ${(props) => props.theme.colors.primaryLight};
     }
 
-    @media (max-width: 768px) {
+    @media only screen and (max-width: 1000px) {
         :not(:last-child){
             margin-bottom: 0rem;
         }
@@ -71,8 +67,8 @@ export const StyledItem = styled.div`
         top: 0;
         background-color: ${(props) => props.theme.colors.primary};
         transform:  scaleX(0);
-        transition: transform .3s,
-                    height .3s cubic-bezier(.99,.01,.01,.99) .3s,
+        transition: transform .2s,
+                    height .2s cubic-bezier(.99,.01,.01,.99) .2s,
                     background-color .1s;
                     
     }   
@@ -114,8 +110,8 @@ export const StyledLink = styled(Link)`
         background-color: ${(props) => props.theme.colors.primaryLight};
     }
 
-    @media (max-width: 768px) {
-        font-size: 1.2rem;
+    @media (max-width: 1000px) {
+        font-size: 1.4rem;
         padding: 1rem 2rem;
     }
     

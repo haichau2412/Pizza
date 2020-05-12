@@ -3,24 +3,7 @@ import { Dropdown, DropdownItem } from './StyledHeader';
 import { useDispatch } from 'react-redux';
 import useClickOutside from './useClickOutSide';
 
-const routes = {
-    unauthenticated: [
-        {
-            path: '/auth/signin',
-            content: 'Sign In',
-        },
-        {
-            path: '/auth/signup',
-            content: 'Sign Up',
-        }],
-    authenticated: [
-        {
-            path: '/home',
-            content: 'Log out',
-        }]
-}
-
-const DropdownMenu = ({ auth, toggle }) => {
+const DropdownMenu = ({ auth, toggle, routes }) => {
 
     const menuRef = React.useRef();
 
