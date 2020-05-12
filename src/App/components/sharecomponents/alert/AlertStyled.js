@@ -41,6 +41,7 @@ export const StyledAlert = styled.div`
         justify-content: center;
         background-color: ${props => props.theme.colors[`bt${props.status}`]};
         border: none;
+        outline: none;
         cursor: pointer;
 
         svg {
@@ -48,6 +49,8 @@ export const StyledAlert = styled.div`
             width: 1.6rem;
             height: 1.6rem;
         }
+
+        
 
     }
 

@@ -43,9 +43,9 @@ export const StyledItem = styled.div`
         width: 3px;
         background-color: ${(props) => props.theme.colors.primary};
         transform:  scaleY(0);
-        transition: transform .2s,
-                    width .2s cubic-bezier(.99,.01,.01,.99) .1s,
-                    background-color .1s;
+        transition: transform .3s,
+                    width .3s cubic-bezier(.99,.01,.01,.99) .2s,
+                    background-color .2s;
                     
     }
 

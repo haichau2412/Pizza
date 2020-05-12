@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormContainer, FormTitle, InputField, Label, Input, Button, Wrapper, LoadingIcon } from './StyledAuth';
+import { FormContainer, FormTitle, InputField, Label, Input, Button, Wrapper, LoadingIcon, ErrorDiv } from './StyledAuth';
 import {
     useFormik
 } from 'formik';
@@ -89,12 +89,12 @@ const SignIn = () => {
                         <InputField>
                             <Label htmlFor="username">Username</Label>
                             <Input autoFocus type="text" id="username" name="username" onChange={handleChange} value={username} onBlur={handleBlur} />
-                            {errors.username ? <div>{errors.username}</div> : null}
+                            <ErrorDiv>{errors.username}</ErrorDiv>
                         </InputField>
                         <InputField>
                             <Label htmlFor="password">Password</Label>
                             <Input type="password" id="password" name="password" onChange={handleChange} value={password} onBlur={handleBlur} />
-                            {errors.password ? <div>{errors.password}</div> : null}
+                            <ErrorDiv>{errors.password}</ErrorDiv>
                         </InputField>
                         <Button disabled={isSubmitting} type="submit">Sign in</Button>
                     </form>

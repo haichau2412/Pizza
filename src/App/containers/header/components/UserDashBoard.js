@@ -32,7 +32,7 @@ const UserDashboard = () => {
     return (
         <StyledUserDashboard onClick={toggleMenu} >
             <img src={photo} alt="User" />
-            <span>{currentUser || 'Anonymous'}</span>
+            <span>{currentUser || 'Signin/Signup'}</span>
             {isOpen ? <DropdownMenu toggle={toggleOutside} auth={authenticated} /> : null}
         </StyledUserDashboard>
     )

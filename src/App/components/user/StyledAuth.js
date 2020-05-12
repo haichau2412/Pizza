@@ -34,7 +34,7 @@ export const FormContainer = styled.div`
     align-items: center;
     background-color: #fff;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 2rem 3rem;
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     font-size: 1.6rem;
@@ -76,17 +76,23 @@ export const Button = styled.button`
 
 `;
 
+export const ErrorDiv = styled.div`
+    height: 2rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: red;
+`;
+
 export const InputField = styled.div`
     position: relative;
     margin: 3rem 0;
 `;
 
 export const Label = styled.label`
-
     font-weight: 900;
     position: absolute;
-    top: -1.5rem;
-    margin: 1rem;
+    top: -1rem;
+    left: 1rem;
     padding: 0 1rem;
     text-transform: uppercase;
     background-color: #fff;
@@ -95,7 +101,7 @@ export const Label = styled.label`
 
 export const Input = styled.input`
     font-size: 1.6rem;
-    padding: .5rem;
+    padding-left: 2rem;
     width: 100%;
     border-radius: .5rem;
     display: block;

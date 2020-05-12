@@ -8,7 +8,7 @@ const Item = ({ product, ulti }) => {
     const dispatch = useDispatch();
     const { photo, name, description, price } = product;
 
-    const handdleClick = () => {
+    const handleClick = () => {
         dispatch(addToCart({ product }))
         ulti(`Add ${name}`, 'success', true);
     }
@@ -20,7 +20,7 @@ const Item = ({ product, ulti }) => {
             <h5>{name}</h5>
             <p>{description}</p>
             <p>{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</p>
-            <button onClick={handdleClick}>ADD TO CART</button>
+            <button onClick={handleClick}>ADD TO CART</button>
         </StyledItem>
     )
 }

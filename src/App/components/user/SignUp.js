@@ -3,7 +3,7 @@ import {
     useFormik
 } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper } from './StyledAuth';
+import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper, ErrorDiv } from './StyledAuth';
 import { authUser, resetMsg } from '../../redux/auth/AuthSlice';
 import { validateSignup } from './validator';
 import { history } from '../../service/History';
@@ -80,22 +80,22 @@ const SignUp = () => {
                         <InputField>
                             <Label htmlFor="username">Username</Label>
                             <Input autoFocus type="text" id="username" name="username" onChange={handleChange} value={username} onBlur={handleBlur} />
-                            {errors.username ? <div>{errors.username}</div> : null}
+                            <ErrorDiv>{errors.username}</ErrorDiv>
                         </InputField>
                         <InputField>
                             <Label htmlFor="email">Email</Label>
                             <Input type="email" id="email" name="email" onChange={handleChange} value={email} onBlur={handleBlur} />
-                            {errors.email ? <div>{errors.email}</div> : null}
+                            <ErrorDiv>{errors.email}</ErrorDiv>
                         </InputField>
                         <InputField>
                             <Label htmlFor="password">Password</Label>
                             <Input type="password" id="password" name="password" onChange={handleChange} value={password} onBlur={handleBlur} />
-                            {errors.password ? <div>{errors.password}</div> : null}
+                            <ErrorDiv>{errors.password}</ErrorDiv>
                         </InputField>
                         <InputField>
                             <Label htmlFor="confirmedPassword">Confirm Password</Label>
                             <Input type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} value={confirmedPassword} onBlur={handleBlur} />
-                            {errors.confirmedPassword ? <div>{errors.confirmedPassword}</div> : null}
+                            <ErrorDiv>{errors.confirmedPassword}</ErrorDiv>
                         </InputField>
                         <Button disabled={isSubmitting} type="submit">Sign up</Button>
                     </form>
