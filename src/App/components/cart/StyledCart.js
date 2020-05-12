@@ -1,10 +1,36 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingIcon = styled.div`
+   
+   margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+
+    animation: ${rotate} 1s linear infinite;
+
+    svg {
+    width: 2rem;
+    height: 2rem;
+    fill: ${props => props.theme.colors.primary};
+    }
+`;
 
 export const StyledCart = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     width: 100%;
     margin-top: 8vh;
     padding: 5rem;
@@ -13,6 +39,10 @@ export const StyledCart = styled.div`
         padding: 3rem;
         margin-top: 8vh;
         flex-direction: column;
+    }
+    @media (max-width: 375px) {
+        margin-top: 15vh;
+
     }
 `;
 
@@ -52,6 +82,14 @@ export const StyledInfo = styled.div`
     @media (max-width: 1024px) {
         margin-bottom: 2rem;
         margin-right: 0;
+        align-self: stretch;
+    }
+`;
+
+export const Empty = styled.div`
+    text-align: center;
+    @media (max-width: 1024px) {
+        
     }
 `;
 
@@ -217,9 +255,14 @@ export const StyledOrder = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 `;
 
 export const StyledPrice = styled.div`
+
+
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     background-color: #fff;

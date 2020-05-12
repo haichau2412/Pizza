@@ -19,6 +19,8 @@ export const DetailBox = styled.div`
     margin-left: 0;
     }
 
+  
+
 `;
 
 export const StyledHr = styled.hr`
@@ -36,14 +38,18 @@ export const StyledBanner = styled.section`
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-    padding-top: 15vh;
+    padding-top: 5vh;
     justify-content: center;
 
     
     h1 {
-        display: inline;
+        display: inline-block;
+        padding: 2rem 1.5rem;
         margin: 5rem auto;
         font-size: 8rem;
+        line-height: 8rem;
+        color:${props => props.theme.colors.h1};
+        border: 1rem double ${props => props.theme.colors.h1};
     }
 
     ul {
@@ -51,13 +57,36 @@ export const StyledBanner = styled.section`
     }
 
     li {
-        
+      line-height: 3rem;
         list-style: none;
         font-size: 3rem;
         :not(:first-child){
             margin-top: 3rem;
         }
     }
+
+    @media (max-width: 1024px) {
+    h1 {
+      line-height: 6rem;
+      font-size: 6rem;
+    }
+    li {
+      line-height: 2rem;
+      font-size: 2rem;
+    }
+    }
+
+    @media (max-width: 375px) {
+      h1 {
+      line-height: 4rem;
+      font-size: 4rem;
+    }
+    li {
+      line-height: 1.5rem;
+      font-size: 1.5rem;
+    }
+    }
+
 
     
 `;
@@ -71,9 +100,17 @@ export const LinkButton = styled(Link)`
   outline: none;
   border: none;
   border-radius: 3rem;
-  background-color: ${props => props.theme.colors.primaryLight};
+  background-color: ${props => props.theme.colors.primary};
   text-transform: uppercase;
   cursor: pointer;
+
+  :hover{
+    background-color: ${props => props.theme.colors.primaryLight};
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
 `;
 
 

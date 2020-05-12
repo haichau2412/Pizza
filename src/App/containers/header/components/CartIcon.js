@@ -9,10 +9,10 @@ const getCart = (state) => state.cart;
 const CartIcon = () => {
 
     const cart = useSelector(getCart);
-    const { items, total } = cart;
+    const { items } = cart;
 
     return (
-        <StyledCartIcon>
+        <StyledCartIcon to="/cart">
             <svg>
                 <use href={sprite + '#icon-cart'} />
             </svg>

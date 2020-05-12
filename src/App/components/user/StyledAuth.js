@@ -1,20 +1,45 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingIcon = styled.div`
+    
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+
+    animation: ${rotate} 1s linear infinite;
+    
+    svg {
+    width: 100%;
+    height: 100%;
+    fill: ${props => props.isAuthenticating ? props.theme.colors.primary : '#fff'};
+    }
+`;
 
 export const FormContainer = styled.div`
     
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     background-color: #fff;
     border-radius: 1rem;
-    padding: 5rem;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     font-size: 1.6rem;
     
     form {
-        
         width: 30rem;
     }
 
@@ -53,7 +78,7 @@ export const Button = styled.button`
 
 export const InputField = styled.div`
     position: relative;
-    margin: 4rem 0;
+    margin: 3rem 0;
 `;
 
 export const Label = styled.label`
@@ -77,6 +102,10 @@ export const Input = styled.input`
     line-height: 2;
     border: 2px solid ${(props) => props.theme.colors.primary};
     outline:none;    
+
+    @media (max-width: 375px) {
+        font-size: 1.2rem;
+    }
 `;
 
 export const Wrapper = styled.div`

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledPrice, NavigationButton, CheckoutButton, StyledOrder } from './StyledCart';
 import AddressForm from './AddressForm';
 
-const OrderCheckout = ({ data, handleClick, showPopup }) => {
+const OrderCheckout = ({ data, handleClick, showPopup, ulti }) => {
 
     const { items, total } = data;
 
@@ -16,7 +16,7 @@ const OrderCheckout = ({ data, handleClick, showPopup }) => {
                 <NavigationButton to="/menu">Continue Orders</NavigationButton>
                 <CheckoutButton onClick={handleClick}>Begin checkout</CheckoutButton>
             </StyledPrice>
-            {showPopup ? <AddressForm /> : null}
+            {showPopup ? <AddressForm ulti={ulti} /> : null}
         </StyledOrder>
     )
 }

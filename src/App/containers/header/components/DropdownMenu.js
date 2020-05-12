@@ -23,9 +23,8 @@ const routes = {
 const DropdownMenu = ({ auth, toggle }) => {
 
     const menuRef = React.useRef();
-    const onCLickOutside = () => toggle();
 
-    useClickOutside(menuRef, onCLickOutside);
+    useClickOutside(menuRef, toggle);
     const dispatch = useDispatch();
     const status = auth ? 'authenticated' : 'unauthenticated';
 

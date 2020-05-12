@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import  { useRef, useEffect } from 'react'
 
 function useClickOutside(elRef, callback) {
+
 
     const callbackRef = useRef();
     callbackRef.current = callback;
@@ -16,7 +17,7 @@ function useClickOutside(elRef, callback) {
             document.removeEventListener('click', handleClickOutside, true);
         }
 
-    }, [callbackRef, elRef]);
+    }, [callbackRef, elRef, callback]);
 }
 
 export default useClickOutside

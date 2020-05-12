@@ -1,22 +1,28 @@
 import React from 'react';
-import Alert from '../sharecomponents/Alert';
+// import Alert from '../sharecomponents/alert/Alert';
 import { useFormik } from 'formik';
 import { checkout, resetMsg } from '../../redux/cart/CartSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { CheckoutForm } from './StyledCart'
+import { CheckoutForm, LoadingIcon } from './StyledCart'
+import sprite from '../../assets/sprite.svg';
 
 const initialValues = {
     address: '',
+    phone: '',
 };
 
+const getRequesting = (state) => state.cart.requesting;
 const getToken = (state) => state.auth.token;
 const getMsg = (state) => state.cart.msg;
 
-const AddressForm = () => {
+const AddressForm = ({ ulti }) => {
 
+    const { setStatus, setMessage, setIsVisible } = ulti;
     const message = useSelector(getMsg);
     const token = useSelector(getToken);
     const dispatch = useDispatch();
+
+    const isRequesting = useSelector(getRequesting);
 
     const formik = useFormik({
         initialValues,
@@ -24,7 +30,7 @@ const AddressForm = () => {
 
             setSubmitting(true);
             try {
-                await dispatch(checkout({ ...values, token }));
+                dispatch(checkout({ ...values, token }));
             }
             catch (error) {
 
@@ -46,29 +52,37 @@ const AddressForm = () => {
     const { address } = values;
 
     React.useEffect(() => {
-        return () => {
-            dispatch(resetMsg());
-        }
-    }, [dispatch]);
+        dispatch(resetMsg());
+    }, [dispatch])
 
-    const makeAlert = React.useCallback(() => {
-        if (message) {
-            alert(message);
+    React.useEffect(() => {
+        if (message === 'Order successfully') {
+            setMessage(message);
+            setStatus('success');
+            setIsVisible(true);
+
+        } else {
+            setMessage(message);
+            setStatus('error');
+            setIsVisible(true);
         }
-    }, [message]);
+    }, [dispatch, message, setIsVisible, setMessage, setStatus]);
+
 
     return (
-        <>
-            <Alert alert={makeAlert} />
-            <CheckoutForm onSubmit={handleSubmit}>
-                <form>
-                    <label htmlFor="address">Address for shipping</label>
-                    <textarea type="text" id="address" name="address" onChange={handleChange} value={address} />
-                    {errors.address ? <div>{errors.address}</div> : null}
-                    <button disabled={isSubmitting} type="submit">Check out</button>
-                </form>
-            </CheckoutForm>
-        </>
+        <CheckoutForm onSubmit={handleSubmit}>
+            <form>
+                <label htmlFor="address">Address for shipping</label>
+                <textarea type="text" id="address" name="address" onChange={handleChange} value={address} />
+                {errors.address ? <div>{errors.address}</div> : null}
+                <button disabled={isSubmitting} type="submit">Check out</button>
+                {isRequesting ? <LoadingIcon>
+                    <svg>
+                        <use href={sprite + '#icon-spinner2'} />
+                    </svg>
+                </LoadingIcon> : null}
+            </form>
+        </CheckoutForm>
     )
 }
 

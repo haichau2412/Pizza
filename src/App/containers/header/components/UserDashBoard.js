@@ -17,18 +17,23 @@ const UserDashboard = () => {
     const { authenticated, currentUser } = authInfo;
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = useCallback(
+    const toggleMenu = () => {
+        setIsOpen(pre => !pre);
+    }
+
+    const toggleOutside = useCallback(
         () => {
-            setIsOpen(!isOpen)
-        },
-        [isOpen]
-    )
+            if (isOpen === true) {
+                setIsOpen(false);
+            }
+        }, [isOpen]);
+
 
     return (
         <StyledUserDashboard onClick={toggleMenu} >
             <img src={photo} alt="User" />
             <span>{currentUser || 'Anonymous'}</span>
-            {isOpen && <DropdownMenu toggle={toggleMenu} auth={authenticated} />}
+            {isOpen ? <DropdownMenu toggle={toggleOutside} auth={authenticated} /> : null}
         </StyledUserDashboard>
     )
 }

@@ -43,6 +43,7 @@ export const authSlice = createSlice({
                 state.currentRequestId = undefined
                 state.currentUser = ''
             }
+
             if (msg) {
                 state.msg = msg;
             } else if (token) {
@@ -53,12 +54,13 @@ export const authSlice = createSlice({
             }
         },
         [authUser.rejected]: (state, action) => {
+
             const { requestId } = action.meta
             if (state.authenticating === true && state.currentRequestId === requestId) {
                 state.authenticating = false;
                 state.currentRequestId = undefined;
-                state.currentUser = ''
-                state.msg = '';
+                state.currentUser = '';
+                state.msg = 'Network error';
             }
 
         },

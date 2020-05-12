@@ -12,23 +12,29 @@ export const StyledHeader = styled.header`
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 1001;
+    z-index: 1004;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
 
-    @media (max-width: 320px) {
+    @media (max-width: 375px) {
         height: 16vh;
         font-size: 1.6rem;
         flex-direction: column;
     }
+
 `;
 
 export const ListNav = styled.ul`
     /* margin-left: 8rem; */
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     list-style: none;
+
+    @media (max-width: 375px) {
+        justify-content: space-around;
+    }
+   
 `;
 
 export const NavButton = styled(Link)`
@@ -59,11 +65,21 @@ export const NavButton = styled(Link)`
         font-size: 1.6rem;
     }
 
+
+    @media (max-width: 375px) {
+        margin: 0 .5rem;
+    }
+
 `;
 
 export const LeftHeader = styled.div`
     display: flex;
     position: relative;
+
+    @media (max-width: 375px) {
+        width: 100%;
+    }
+  
 `;
 export const Logo = styled.img`
     position: absolute;
@@ -79,15 +95,15 @@ export const RightHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    @media (max-width: 320px) {
+
+    @media (max-width: 375px) {
+        justify-content: space-around;
         font-size: 1.6rem;
-        
     }
 `;
 
 
-export const StyledCartIcon = styled.div`
-
+export const StyledCartIcon = styled(Link)`
     margin-right: 2rem;
     position: relative;
 
@@ -111,6 +127,10 @@ export const StyledCartIcon = styled.div`
         display: flex;
         justify-content:center;
         align-items: center;
+
+        @media (max-width: 375px) {
+        font-size: 1.2rem;
+    }
     }
 `;
 
@@ -132,7 +152,7 @@ export const StyledUserDashboard = styled.div`
 export const Dropdown = styled.div`
 
     position: absolute;
-    top: 60px;
+    top: 6rem;
     right: 0;
     background-color: #fff;
     border-radius: 8px;
@@ -141,7 +161,12 @@ export const Dropdown = styled.div`
     flex-direction: column;
     font-size: 1.6rem;
   
-    
+    @media (max-width: 1024px) {
+    top: 7rem;
+    }
+    & > *:not(:nth-child(1)) {
+        margin-top: 1rem;
+    }
 
 `;
 
@@ -154,9 +179,10 @@ export const DropdownItem = styled(Link)`
     padding: 1rem;
     text-decoration: none;
     color: #000;
+    background-color: #fff;
+    border-radius: 8px;
 
     :hover {
-        border-radius: 8px;
         background-color: ${props => props.theme.colors.background}
     }
     :visited {

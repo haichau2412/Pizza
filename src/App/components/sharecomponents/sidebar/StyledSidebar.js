@@ -20,7 +20,7 @@ export const StyledSidebar = styled.nav`
         z-index: 1000;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 375px) {
         top: 16vh;
     }
     

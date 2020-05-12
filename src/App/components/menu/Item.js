@@ -3,11 +3,15 @@ import { StyledItem, ImageContainer, Image } from './StyledMenu';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cart/CartSlice';
 
-const Item = ({ product }) => {
+const Item = ({ product, ulti }) => {
 
     const dispatch = useDispatch();
     const { photo, name, description, price } = product;
 
+    const handdleClick = () => {
+        dispatch(addToCart({ product }))
+        ulti(`Add ${name}`, 'success', true);
+    }
     return (
         <StyledItem>
             <ImageContainer >
@@ -16,7 +20,7 @@ const Item = ({ product }) => {
             <h5>{name}</h5>
             <p>{description}</p>
             <p>{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</p>
-            <button onClick={() => dispatch(addToCart({ product }))}>ADD TO CART</button>
+            <button onClick={handdleClick}>ADD TO CART</button>
         </StyledItem>
     )
 }

@@ -14,6 +14,11 @@ export const ProductFrame = styled.div`
         margin-left: 0rem;
         margin-top: 15vh;
     }
+
+    @media (max-width: 375px) {
+        margin-top: 24vh;
+        padding: 1rem;
+    }
 `;
 
 
@@ -78,7 +83,7 @@ export const StyledItem = styled.div`
         font-size: 1.6rem;
         text-align: center;
         padding: 1.25rem;
-        background-color: ${props => props.theme.colors.primary};
+        background-color: ${props => props.theme.colors.primaryDark};
         color: #fff;
         transform: translateY(20rem);
     }
@@ -93,7 +98,7 @@ export const StyledItem = styled.div`
         grid-column: 1 / -1;
         border: none;
         outline: none;
-        background-color:  ${props => props.theme.colors.primary};
+        background-color:  ${props => props.theme.colors.primaryDark};
         color: #fff;
         transition: background-color .1s;
         cursor: pointer;

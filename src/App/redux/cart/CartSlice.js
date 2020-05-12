@@ -6,7 +6,7 @@ export const checkout = createAsyncThunk(
     async (info, { getState, requestId }) => {
         const { currentRequestId, requesting, products, total } = getState().cart;
 
-        if (requesting === false || requestId === currentRequestId) {
+        if (requesting === false || requestId !== currentRequestId) {
             return
         }
         const data = await UserServices.checkout({ ...info, cart: products, totalPrice: total });
@@ -76,13 +76,15 @@ export const cartSlice = createSlice({
         [checkout.pending]: (state, action) => {
             if (state.requesting === false) {
                 state.requesting = true;
+                state.currentRequestId = action.meta.requestId;
             }
         },
         [checkout.fulfilled]: (state, action) => {
             const { requestId } = action.meta;
+
             const { msg } = action.payload;
 
-
+            console.log(msg);
             if (state.requesting === true && state.currentRequestId === requestId) {
                 state.requesting = false;
                 state.currentRequestId = undefined
@@ -100,7 +102,7 @@ export const cartSlice = createSlice({
             if (state.requesting === true && state.currentRequestId === requestId) {
                 state.requesting = false;
                 state.currentRequestId = undefined;
-                state.msg = '';
+                state.msg = 'Network Error';
             }
         }
     }
