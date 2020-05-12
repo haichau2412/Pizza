@@ -6,14 +6,13 @@ export const StyledHeader = styled.header`
     width: 100vw;
     height: 8vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #fff;    
-    align-items: center;
     position: fixed;
     top: 0;
     z-index: 1004;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
+
 
     @media (max-width: 375px) {
         height: 16vh;
@@ -23,25 +22,35 @@ export const StyledHeader = styled.header`
 
 `;
 
-export const ListNav = styled.ul`
-    /* margin-left: 8rem; */
-    width: 100%;
+export const Logo = styled(Link)`
+    flex: 0 0 ${100 / 3}%;
+    align-self: stretch;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
+    justify-content: center;
+`;
+
+
+
+export const ListNav = styled.ul`
+
+    flex: 0 0 ${100 / 3}%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
 
     @media (max-width: 375px) {
-        justify-content: space-around;
+        width: 100%;
     }
+  
+    list-style: none;
    
 `;
 
 export const NavButton = styled(Link)`
     margin: 0 1rem;
-    padding: .3rem 1rem;
+    padding: 1rem;
     color: ${(props) => props.theme.colors.primary};
-    border-radius : 2rem;
+    border-radius : 8px;
     border: none;
     line-height: 2rem;
     text-align: center;
@@ -50,10 +59,10 @@ export const NavButton = styled(Link)`
     font-weight: 900;
     font-size: 2rem;
     text-decoration: none;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1),-2px -2px 15px rgba(255,255,255,1);   
+    
     
     :hover {
-        box-shadow: inset 2px 2px 15px rgba(0, 0, 0, 0.1);
+        background-color: ${props => props.theme.colors.background};
     }
 
     :link {
@@ -72,27 +81,13 @@ export const NavButton = styled(Link)`
 
 `;
 
-export const LeftHeader = styled.div`
-    display: flex;
-    position: relative;
-
-    @media (max-width: 375px) {
-        width: 100%;
-    }
-  
-`;
-export const Logo = styled.img`
-    position: absolute;
-    top: -1.5rem;
-    left: -1.5rem;
-    height: 8rem;
-`;
 
 export const RightHeader = styled.div`
+    flex: 0 0 ${100 / 3}%;
     position: relative;
     align-self: stretch;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 1rem 2rem;
 

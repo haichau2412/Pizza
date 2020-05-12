@@ -23,6 +23,14 @@ export const DetailBox = styled.div`
 
 `;
 
+
+export const Logo = styled.img`
+    height: 10rem;
+    fill: ${props => props.theme.colors.primary};
+`;
+
+
+
 export const StyledHr = styled.hr`
   border: none;
   display: block;

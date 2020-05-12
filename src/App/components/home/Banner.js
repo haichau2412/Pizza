@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyledBanner, StyledHr, LinkButton } from './StyledHome';
+import { StyledBanner, StyledHr, LinkButton, Logo } from './StyledHome';
+import LOGO from '../../assets/LOGO.svg';
 
 const Banner = () => {
 
     return (
 
         <StyledBanner>
+            <Logo src={LOGO} alt="Pyco Pizza" />
             <h1>PYCO PIZZA</h1>
             <StyledHr />
             <ul>
