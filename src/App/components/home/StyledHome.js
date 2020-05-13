@@ -9,17 +9,26 @@ export const StyledHome = styled.div`
     overflow: hidden; 
 `;
 
+export const StyledConfirm = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  p {
+    font-size: 1.6rem;
+  }
+`;
+
 export const DetailBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     margin-left: 0;
     }
-
-  
 
 `;
 
@@ -54,6 +63,7 @@ export const StyledBanner = styled.section`
         display: inline-block;
         padding: 2rem 1.5rem;
         margin: 5rem auto;
+        margin-top: 2rem;
         font-size: 8rem;
         line-height: 8rem;
         color:${props => props.theme.colors.h1};
@@ -73,7 +83,7 @@ export const StyledBanner = styled.section`
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1000px) {
     h1 {
       line-height: 6rem;
       font-size: 6rem;
@@ -94,9 +104,6 @@ export const StyledBanner = styled.section`
       font-size: 1.5rem;
     }
     }
-
-
-    
 `;
 
 export const LinkButton = styled(Link)`
@@ -104,10 +111,10 @@ export const LinkButton = styled(Link)`
   color: #fff;
   margin-top: 5rem;
   font-size: 3rem;
-  padding: 2rem 3rem;
+  padding: 1rem 2rem;
   outline: none;
   border: none;
-  border-radius: 3rem;
+  border-radius: 8px;
   background-color: ${props => props.theme.colors.primary};
   text-transform: uppercase;
   cursor: pointer;

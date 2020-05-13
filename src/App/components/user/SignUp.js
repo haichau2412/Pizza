@@ -57,10 +57,10 @@ const SignUp = () => {
 
     React.useEffect(() => {
         dispatch(resetMsg());
-    }, [dispatch])
+    }, []);
 
     React.useEffect(() => {
-        if (message === 'Email sent' && !isVisible) {
+        if (message === 'Confirm email sent' && !isVisible) {
             history.push('/home');
         }
     }, [message, isVisible, dispatch]);
@@ -68,7 +68,7 @@ const SignUp = () => {
     const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
     const { username, password, email, confirmedPassword } = values;
 
-    let status = message === 'Email sent' ? 'success' : message === 'Network error' ? 'error' : 'warning';
+    let status = message === 'Confirm email sent' ? 'success' : message === 'Network error' ? 'error' : 'warning';
 
     return (
         <>

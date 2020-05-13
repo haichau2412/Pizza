@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { StyledUserDashboard } from './StyledHeader';
-import photo from '../../../assets/photo.jpg';
+import photo from '../../../assets/photo.png';
 import DropdownMenu from './DropdownMenu';
 import routes from './routes';
 import { useSelector } from 'react-redux';

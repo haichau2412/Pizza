@@ -16,7 +16,13 @@ export const StyledAlert = styled.div`
     z-index: 1003;
 
     @media only screen and (max-width: 1000px) {
-        top: ${props => props.cart ? '8%' : '14%'}; 
+        top: ${props => props.menu ? '13%' : '10%'}; 
+        transform: ${props => props.menu ? (props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)') :
+        (props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)')};
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 80vw;
     }
 
     svg {
@@ -27,7 +33,7 @@ export const StyledAlert = styled.div`
         fill: ${props => props.theme.colors[props.status]};
 
         @media only screen and (max-width: 600px) {
-                width: 1.6rem;
+            width: 1.6rem;
             height: 1.6rem;
     }
     }   

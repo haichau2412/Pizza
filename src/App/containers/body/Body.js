@@ -7,6 +7,7 @@ import User from '../../components/user/User';
 import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
+import Confirm from '../../components/home/Confirm';
 
 const routes = [
     {
@@ -41,6 +42,9 @@ const Body = () => {
                     <route.component />
                 </Route>
             })}
+            <Route path="/confirm/:hashedToken/:username">
+                <Confirm />
+            </Route>
         </Switch>
     )
 }

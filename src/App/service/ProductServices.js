@@ -5,7 +5,9 @@ const { API_HOST } = config;
 const handleResponse = async (response) => {
 
     try {
+
         const result = await response.json();
+        console.log(result);
         if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api

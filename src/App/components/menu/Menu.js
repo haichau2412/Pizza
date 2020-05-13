@@ -44,7 +44,7 @@ const Menu = () => {
 
     return (
         <>
-            <Alert status={status} msg={message} isVisible={isVisible} handleClick={handleClickAlert} />
+            <Alert menu={true} status={status} msg={message} isVisible={isVisible} handleClick={handleClickAlert} />
             <Sidebar routes={routes} handleClick={handleClick} />
             <ProductView products={products[category]} addNotification={addNotification}></ProductView>
         </>

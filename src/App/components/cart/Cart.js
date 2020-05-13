@@ -57,7 +57,7 @@ const Cart = () => {
     })
     return (
         <>
-            <Alert cart={true} status={status} msg={message} isVisible={isVisible} handleClick={handleClickAlert} />
+            <Alert status={status} msg={message} isVisible={isVisible} handleClick={handleClickAlert} />
             <StyledCart>
                 <StyledInfo>
                     <TableHeading>

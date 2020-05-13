@@ -67,6 +67,12 @@ export const checkout = async ({ address, cart, token, totalPrice }) => {
     return data;
 }
 
+export const confirmEmail = async ({ hashedToken, username }) => {
+    const response = await fetch(`${API_HOST}/${hashedToken}/${username}`);
+    const data = await handleResponse(response);
+    return data;
+}
+
 // export const signin = async (info) => {
 //     const requestOptions = {
 //         method: 'POST',
@@ -86,5 +92,5 @@ export default {
     authUser,
     handleResponse,
     checkout,
-
+    confirmEmail,
 }

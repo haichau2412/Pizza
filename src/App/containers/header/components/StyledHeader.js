@@ -24,7 +24,7 @@ export const Logo = styled(Link)`
         height: 100%
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
         flex: 0 0 20%;
     }
 `;
@@ -36,7 +36,7 @@ export const ListNav = styled.ul`
     position: relative;
     list-style: none;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
         display: none ;
     }
    
@@ -69,7 +69,7 @@ export const NavButton = styled(Link)`
     @media (max-width: 1000px) {
         line-height: 1.4rem;
         font-size: 1.4rem;
-        margin: 0 .5rem;
+        margin: 0;
     }
 
 
@@ -79,10 +79,10 @@ export const NavButton = styled(Link)`
 
 `;
 export const NavSmall = styled.div`
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 1000px) {
         display: none;
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
         flex: 0 0 40%;
         display: flex;
         justify-content: flex-start;
@@ -110,7 +110,7 @@ export const RightHeader = styled.div`
     align-items: center;
     padding: 1rem;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1000px) {
         flex: 0 0 40%;
     }
 `;
@@ -151,11 +151,11 @@ export const StyledCartIcon = styled(Link)`
 
     @media only screen and (max-width: 1000px) {
         margin-right: 0;
+
         svg {
             height: 2.5rem;
         width: 2.5rem;
         }
-           
     }
 `;
 
@@ -170,10 +170,19 @@ export const StyledUserDashboard = styled.div`
         border-radius: 50%;
         margin-right: 1rem;
     }
+
     span {
         line-height: 1rem;
         font-size: 1.4rem;
+
+        @media only screen and (max-width: 600px){
+       display: none;
     }
+    }
+
+    
+
+    
 `;
 export const Dropdown = styled.div`
 

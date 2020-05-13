@@ -13,6 +13,19 @@ export const authUser = createAsyncThunk(
     }
 )
 
+export const confirmEmail = createAsyncThunk(
+    'auth/confirmEmailStatus',
+    async (info, { getState, requestId }) => {
+        const { currentRequestId, authenticating } = getState().auth;;
+        if (authenticating === false || requestId !== currentRequestId) {
+            return
+        }
+        const data = await UserServices.confirmEmail(info);
+
+        return { ...data, username: info.username };
+    }
+)
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
@@ -38,6 +51,7 @@ export const authSlice = createSlice({
         [authUser.fulfilled]: (state, action) => {
             const { requestId } = action.meta
             const { msg, username, token } = action.payload;
+
             if (state.authenticating === true && state.currentRequestId === requestId) {
                 state.authenticating = false
                 state.currentRequestId = undefined
@@ -61,6 +75,41 @@ export const authSlice = createSlice({
                 state.currentRequestId = undefined;
                 state.currentUser = '';
                 state.msg = 'Network error';
+            }
+
+        },
+        [confirmEmail.pending]: (state, action) => {
+            if (state.authenticating === false) {
+                state.authenticating = true;
+                state.currentRequestId = action.meta.requestId;
+            }
+        },
+        [confirmEmail.fulfilled]: (state, action) => {
+            const { requestId } = action.meta
+            const { msg, username, token } = action.payload;
+
+            if (state.authenticating === true && state.currentRequestId === requestId) {
+                state.authenticating = false
+                state.currentRequestId = undefined
+                state.currentUser = ''
+            }
+
+            if (token) {
+                state.msg = '';
+                state.currentUser = username;
+                state.authenticated = true;
+                state.token = token;
+            } else if (msg) {
+                state.msg = msg;
+            }
+        },
+        [confirmEmail.rejected]: (state, action) => {
+            const { requestId } = action.meta
+            if (state.authenticating === true && state.currentRequestId === requestId) {
+                state.authenticating = false;
+                state.currentRequestId = undefined;
+                state.currentUser = '';
+                state.msg = 'Link expired';
             }
 
         },
