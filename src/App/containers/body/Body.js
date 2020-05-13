@@ -12,7 +12,7 @@ import Confirm from '../../components/home/Confirm';
 const routes = [
     {
         path: '/',
-        component: Menu,
+        component: Home,
         exact: true
     },
     {

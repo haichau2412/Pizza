@@ -1,27 +1,20 @@
 import styled from 'styled-components';
 
 export const ProductFrame = styled.div`
-    margin-left: 10rem;
     padding: 3rem; 
-    margin-top: 8vh;
-    padding-left: 5rem; 
+    margin-top: 15vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     column-gap: 5rem;
     row-gap: 3rem;
-    
-    @media only screen and (max-width: 1000px) {
-        margin-left: 0rem;
-        margin-top: 15vh;
-    }
 `;
 
-
 export const ImageContainer = styled.div`
-    width: 90%;
+    width: 95%;
     height: 20rem;
     overflow: hidden;
-    margin: 2rem auto;
+    margin: 1rem auto;
+    border-radius: 8px;
 `;
 
 export const Image = styled.div`
@@ -60,12 +53,17 @@ export const StyledItem = styled.div`
     p {
         display: inline-block;
         padding: 0 2rem;
+        padding-top: 2rem;
         grid-column: 1 / -1;
         font-size: 1.6rem;
     }
 
     p:nth-of-type(1){
-        height: 10rem;
+        height: 8rem;
+        font-weight:500;
+    }
+    p:nth-of-type(2){
+        font-weight: 700;
     }
 
     h5 {
@@ -78,28 +76,37 @@ export const StyledItem = styled.div`
         font-size: 1.6rem;
         text-align: center;
         padding: 1.25rem;
-        background-color: ${props => props.theme.colors.primaryDark};
-        color: #fff;
+        background-color: #fff;
+        color: ${props => props.theme.colors.primary};
         transform: translateY(20rem);
+        border-radius: 8px;
+        border: 2px solid ${props => props.theme.colors.primary};
+        font-weight:1000;
     }
 
     button {
-        font-family: monospace;
-        align-self: end;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
+        justify-self: center;
+        width: 50%;
+        font-family: 'Roboto';
+        /* align-self: end; */
+        /* border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px; */
+        border-radius: 8px;
+        margin-bottom: 1rem;
         font-size: 1.6rem;
         padding: 1rem 0;
         grid-column: 1 / -1;
         border: none;
         outline: none;
-        background-color:  ${props => props.theme.colors.primaryDark};
-        color: #fff;
+        background-color:  ${props => props.theme.colors.primary};
+        color:  #fff;
+        font-weight: 600;
         transition: background-color .1s;
         cursor: pointer;
 
         :hover,:link{
-            background-color:  ${props => props.theme.colors.primaryLight};
+        background-color:  ${props => props.theme.colors.primaryLight};
+        color: #fff;
         }
     }
 
@@ -107,6 +114,10 @@ export const StyledItem = styled.div`
         p,h5,button {
             font-size: 1.4rem;
         }
+
+        p:nth-of-type(1){
+        height: 6rem;
+    }
     }
 
 `;

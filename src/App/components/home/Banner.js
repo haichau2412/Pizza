@@ -5,7 +5,6 @@ import LOGO from '../../assets/LOGO.svg';
 const Banner = () => {
 
     return (
-
         <StyledBanner>
             <Logo src={LOGO} alt="Pyco Pizza" />
             <h1>PYCO PIZZA</h1>

@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-
+import { Link } from 'react-router-dom';
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -9,6 +9,13 @@ const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
+
+export const NavLink = styled(Link)`
+    text-decoration: none;
+    color: ${props => props.theme.colors.primaryDark};
+    margin-bottom: 2rem;
+`;
+
 
 export const LoadingIcon = styled.div`
     
@@ -52,16 +59,19 @@ export const FormContainer = styled.div`
     }
 `
 export const FormTitle = styled.span`
-    font-family: monospace;
+    font-family: 'Roboto';
+    font-weight: 800;
     display: block;
     font-size: 3rem;
     color: ${(props) => props.theme.colors.primary};
     text-align: center;
     line-height: 1.2;
+    margin-bottom: 1rem;
+    
 `;
 
 export const Button = styled.button`
-    font-family: monospace;
+    font-family: 'Roboto';
     outline:none;
     background-color: ${(props) => props.theme.colors.primary};
     border: none;
@@ -72,23 +82,27 @@ export const Button = styled.button`
     margin: 1rem auto;
     cursor: pointer;
     font-size: 1.6rem;
-    border-radius: 2rem;    
+    border-radius: 8px;    
 
+    :hover {
+ background-color: ${(props) => props.theme.colors.primaryLight};
+    }
 `;
 
 export const ErrorDiv = styled.div`
+    margin-top:.2rem;
     height: 2rem;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    color: red;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 `;
 
 export const InputField = styled.div`
     position: relative;
-    margin: 3rem 0;
+    margin: 2rem 0;
 `;
 
 export const Label = styled.label`
+    font-family: 'Roboto';
     font-weight: 900;
     position: absolute;
     top: -1rem;

@@ -12,7 +12,7 @@ const Header = () => {
     const isAuthenticated = useSelector(getAuthenticated);
 
     return (
-        <StyledHeader>
+        <StyledHeader >
             <HeaderNav auth={isAuthenticated} />
             <Logo to='/home' >
                 <img src={LOGO} alt="Pyco Pizza" />

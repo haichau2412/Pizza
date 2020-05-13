@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormContainer, FormTitle, InputField, Label, Input, Button, Wrapper, LoadingIcon, ErrorDiv } from './StyledAuth';
+import { FormContainer, FormTitle, InputField, Label, Input, Button, Wrapper, LoadingIcon, ErrorDiv, NavLink } from './StyledAuth';
 import {
     useFormik
 } from 'formik';
@@ -85,6 +85,7 @@ const SignIn = () => {
             <Wrapper>
                 <FormContainer onSubmit={handleSubmit}>
                     <FormTitle>Sign in</FormTitle>
+                    <NavLink to="/auth/signup">Don't have account ? Please sign up</NavLink>
                     <form >
                         <InputField>
                             <Label htmlFor="username">Username</Label>

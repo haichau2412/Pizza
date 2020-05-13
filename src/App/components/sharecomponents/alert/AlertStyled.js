@@ -5,7 +5,7 @@ export const StyledAlert = styled.div`
     align-items: center;
     position: fixed;
     border-radius: 8px;
-    top: 8%;
+    top: ${props => props.menu ? '14%' : '8%'};
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: ${props => props.theme.colors[`bg${props.status}`]};
@@ -13,12 +13,10 @@ export const StyledAlert = styled.div`
     overflow: hidden;
     transition: transform .5s cubic-bezier(.51,-0.52,.6,1.05);
     transform: ${props => props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)'};
-    z-index: 1003;
+    z-index: 1002;
 
     @media only screen and (max-width: 1000px) {
-        top: ${props => props.menu ? '13%' : '10%'}; 
-        transform: ${props => props.menu ? (props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)') :
-        (props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)')};
+        top: ${props => props.menu ? '12%' : '8%'};
     }
 
     @media only screen and (max-width: 600px) {

@@ -3,7 +3,7 @@ import {
     useFormik
 } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper, ErrorDiv } from './StyledAuth';
+import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper, ErrorDiv, NavLink } from './StyledAuth';
 import { authUser, resetMsg } from '../../redux/auth/AuthSlice';
 import { validateSignup } from './validator';
 import { history } from '../../service/History';
@@ -57,12 +57,19 @@ const SignUp = () => {
 
     React.useEffect(() => {
         dispatch(resetMsg());
-    }, []);
+
+
+    }, [dispatch]);
 
     React.useEffect(() => {
         if (message === 'Confirm email sent' && !isVisible) {
             history.push('/home');
         }
+        return () => {
+            if (message === 'Confirm email sent' && !isVisible) {
+                dispatch(resetMsg());
+            }
+        };
     }, [message, isVisible, dispatch]);
 
     const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
@@ -76,6 +83,7 @@ const SignUp = () => {
             <Wrapper>
                 <FormContainer onSubmit={handleSubmit}>
                     <FormTitle>Sign Up</FormTitle>
+                    <NavLink to="/auth/signin">Have account ? Please sign in</NavLink>
                     <form>
                         <InputField>
                             <Label htmlFor="username">Username</Label>

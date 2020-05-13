@@ -52,13 +52,13 @@ export const NavButton = styled(Link)`
     text-align: center;
     text-transform: uppercase;
     background-color: #fff;
-    font-weight: 900;
+    font-weight: 1000;
     font-size: 1.6rem;
     text-decoration: none;
     
     
     :hover {
-        background-color: ${props => props.theme.colors.background};
+        background-color: ${props => props.theme.colors.backgroundHover};
     }
 
     :link {
@@ -117,18 +117,15 @@ export const RightHeader = styled.div`
 
 
 export const StyledCartIcon = styled(Link)`
-    margin-right: 2rem;
     position: relative;
+    margin: 2rem;
 
     svg {
         padding-top: .5rem;
         height: 3rem;
         width: 3rem;
         margin-right: 2rem;
-        fill:${props => props.theme.colors.primary};
-
-       
-
+        fill:${props => props.theme.colors.primaryDark};
     }
 
     span {
@@ -139,7 +136,7 @@ export const StyledCartIcon = styled(Link)`
         width: 1.5rem;
         border-radius: 50%;
         color: #fff;
-        background-color: ${props => props.theme.colors.red};
+        background-color: ${props => props.theme.colors.primary};
         display: flex;
         justify-content:center;
         align-items: center;
@@ -162,8 +159,8 @@ export const StyledCartIcon = styled(Link)`
 export const StyledUserDashboard = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 1rem;
     position: relative;
+    cursor: pointer;
 
     img {
         height: 3rem;
@@ -174,6 +171,7 @@ export const StyledUserDashboard = styled.div`
     span {
         line-height: 1rem;
         font-size: 1.4rem;
+        margin-right: 1rem;
 
         @media only screen and (max-width: 600px){
        display: none;
@@ -206,7 +204,6 @@ export const Dropdown = styled.div`
 `;
 
 export const StyledropdownNav = styled.div`
-
     position: absolute;
     top: 7rem;
     left: 2rem;
@@ -216,10 +213,12 @@ export const StyledropdownNav = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
+    z-index: 1004;
 
     & > *:not(:nth-child(1)) {
         margin-top: 1rem;
     }
+
 
 `;
 
@@ -234,9 +233,10 @@ export const DropdownItem = styled(Link)`
     color: #000;
     background-color: #fff;
     border-radius: 8px;
+    
 
     :hover {
-        background-color: ${props => props.theme.colors.background}
+        background-color: ${props => props.theme.colors.backgroundHover}
     }
     :visited {
         color: #000;
@@ -253,10 +253,11 @@ export const DropdownLogout = styled.a`
     text-decoration: none;
     color: #000;
     cursor: pointer;
+    z-index: 1004;
 
     :hover {
         border-radius: 8px;
-        background-color: ${props => props.theme.colors.background}
+        background-color: ${props => props.theme.colors.backgroundHover}
     }
     :visited {
         color: #000;

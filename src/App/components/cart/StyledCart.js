@@ -52,7 +52,7 @@ export const TableHeading = styled.div`
     margin-bottom: 3rem;
 
     p {
-        font-size: 1.6rem;
+        font-size: 2rem;
         justify-self: center;
         font-weight: 800;
     }
@@ -76,10 +76,15 @@ export const StyledInfo = styled.div`
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     background-color: #fff;
 
+    hr:last-child{
+        display: none;
+    }
+
     @media only screen and (max-width: 1000px) {
         margin-bottom: 2rem;
         margin-right: 0;
         align-self: stretch;
+        
     }
 `;
 
@@ -94,19 +99,22 @@ export const Tag = styled.div`
     text-transform: uppercase;
     font-weight: 800;
     justify-self: start;
+    font-size:1.6rem;
 `;
 
 export const Description = styled.p`
     justify-self: start;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 `;
 
 export const Cost = styled.p`
     justify-self: center;
+    font-weight: 800;
 `;
 
 export const Total = styled.p`
     justify-self: center;
+    font-weight: 800;
 `;
 
 export const Quantity = styled.div`
@@ -228,9 +236,12 @@ export const InfoFrame = styled.div`
             font-size: 1.6rem;
             text-align: center;
             padding: 1.25rem;
-            background-color: ${props => props.theme.colors.primary};
-            color: #fff;
+            color: ${props => props.theme.colors.primary};
             transform: translateY(10%);
+            border-radius: 8px;
+            background-color: #fff;
+            border: 2px solid ${props => props.theme.colors.primary};
+            font-weight:1000;
         }
         ${Cost} {
             grid-column: 1 / -1;
@@ -293,24 +304,24 @@ export const StyledPrice = styled.div`
 `;
 
 export const NavigationButton = styled(Link)`
-
         font-size: 1.6rem;
-        padding: 1rem;
+        padding: 1rem .5rem;
         border: none;
         outline: none;
-        background-color:  ${props => props.theme.colors.primary};
+        background-color:  ${props => props.theme.colors.primaryDark};
         color: #fff;
         transition: background-color .1s;
         cursor: pointer;
         text-decoration: none;
         display: flex;
+        justify-content: center;
         align-items: center;
         line-height: 1;
 
-        :hover{
-            background-color:  ${props => props.theme.colors.primaryLight};
-        }
 
+        :hover{
+            background-color:  ${props => props.theme.colors.primary};
+        }
         border-right: 2px solid ${props => props.theme.colors.primaryLight};
         border-bottom-left-radius: 8px;
     
@@ -318,12 +329,12 @@ export const NavigationButton = styled(Link)`
 
 export const CheckoutButton = styled.button`
 
-        font-family: monospace;
+        font-family: 'Roboto';
         font-size: 1.6rem;
-        padding: 1rem;
+        padding: 1rem .5rem;
         border: none;
         outline: none;
-        background-color:  ${props => props.theme.colors.primary};
+        background-color:  ${props => props.theme.colors.primaryDark};
         color: #fff;
         transition: background-color .1s;
         cursor: pointer;
@@ -331,7 +342,7 @@ export const CheckoutButton = styled.button`
         text-align: center;
 
         :hover{
-            background-color:  ${props => props.theme.colors.primaryLight};
+            background-color:  ${props => props.theme.colors.primary};
         }
         border-bottom-right-radius: 8px;
 `;

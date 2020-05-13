@@ -15,9 +15,8 @@ const Confirm = () => {
 
     React.useEffect(() => {
         dispatch(confirmEmail({ hashedToken, username }))
-    }, );
+    });
 
-    console.log(isAuthenticated)
     React.useEffect(() => {
         if (isAuthenticated === true) {
             history.push('/menu');
@@ -27,6 +26,7 @@ const Confirm = () => {
 
     return (
         <>
+
         </>
     )
 }

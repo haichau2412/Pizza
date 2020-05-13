@@ -15,10 +15,6 @@ const routes = [
         path: '/cart',
         content: 'Cart',
     },
-    {
-        path: '/history',
-        content: 'History'
-    }
 ]
 
 
@@ -30,9 +26,10 @@ const DropdownNav = ({ auth, toggle }) => {
 
     return (
         <StyledropdownNav ref={menuRef} >
-            {auth || routes.map((route, index) => {
+            {routes.map((route, index) => {
                 return <DropdownItem onClick={toggle} key={index} to={route.path}>{route.content}</DropdownItem>
             })}
+            {auth ? <DropdownItem onClick={toggle} to="/history">History</DropdownItem> : null}
         </StyledropdownNav>
     )
 }

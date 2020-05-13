@@ -39,7 +39,7 @@ const Cart = () => {
 
     const handlePopup = React.useCallback(() => {
         if (!isAuthenticated) {
-            setMessage('You have to login before checkout');
+            setMessage('You have to sign in before checkout');
             setStatus('warning');
             setIsVisible(true);
         } else if (items === 0) {

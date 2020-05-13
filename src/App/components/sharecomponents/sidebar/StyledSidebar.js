@@ -2,58 +2,21 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledSidebar = styled.nav`
-    background-color: ${(props) => props.theme.colors.primaryDark};
-    height: 92vh;
+    background-color: #000;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     position: fixed;
-    left: 0;
     top: 8vh;
-    
-
-    @media only screen and (max-width: 1000px) {
-        flex-direction: row;
-        width: 100%;
-        height: auto;
-        z-index: 1004;
-    }
-    
+    width: 100vw;
+    height: auto;
+    z-index: 1003;
 `;
 export const StyledItem = styled.div`
     position: relative;
-    width: 100%;
+    width: 20rem;
 
-    :not(:last-child){
-        margin-bottom: 2rem;
-    }
-
-    ::before {
-        box-sizing: border-box;
-        z-index: 1;
-        content: "";
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 5px;
-        background-color: ${(props) => props.theme.colors.primary};
-        transform:  scaleY(0);
-        transition: transform .2s,
-                    width .2s cubic-bezier(.99,.01,.01,.99) .2s,
-                    background-color .2s;
-                    
-    }
-
-    :hover::before{
-        transform: scaleY(1);
-        width: 100%;
-    }
-    :active::before{
-        background-color: ${(props) => props.theme.colors.primaryLight};
-    }
-
-    @media only screen and (max-width: 1000px) {
         :not(:last-child){
             margin-bottom: 0rem;
         }
@@ -79,7 +42,6 @@ export const StyledItem = styled.div`
         }
         :active::before{
         background-color: ${(props) => props.theme.colors.primaryLight};
-    }
     }
 `;
 
