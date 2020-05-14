@@ -8,7 +8,7 @@ export const theme = {
         grey: '#353b48',
         darkGrey: '#2f3640',
         red: '#EA2027',
-        background: '#fffaf5',
+        background: '#6e6e6e',
         backgroundHover: '#ededed',
         h1: '#000',
         bgwarning: '#fffad4',

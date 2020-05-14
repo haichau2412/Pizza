@@ -275,7 +275,7 @@ export const StyledPrice = styled.div`
     border-radius: 8px;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
     background-color: #fff;
-    flex: 0 0 25%;
+    flex: 0 0 30%;
     align-self: flex-start;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -295,6 +295,10 @@ export const StyledPrice = styled.div`
 
     p:nth-child(2n+1) {
         padding-left: 2rem;
+        font-weight: 800;
+    }
+
+    p:nth-child(4) {
         font-weight: 800;
     }
 
@@ -328,8 +332,7 @@ export const NavigationButton = styled(Link)`
 `;
 
 export const CheckoutButton = styled.button`
-
-        font-family: 'Roboto';
+        font-family: inherit;
         font-size: 1.6rem;
         padding: 1rem .5rem;
         border: none;
@@ -364,9 +367,8 @@ export const CheckoutForm = styled.div`
     justify-content: center;
 
     button {
-        font-family: monospace;
         outline:none;
-        background-color: ${(props) => props.theme.colors.primary};
+        background-color: ${(props) => props.theme.colors.primaryDark};
         border: none;
         color: white;
         padding: 1rem 2rem;
@@ -375,13 +377,17 @@ export const CheckoutForm = styled.div`
         margin: 1rem auto;
         cursor: pointer;
         font-size: 1.6rem;
-        border-radius: 2rem;
+        border-radius: 8px;
+        font-family: inherit;
+
+        :hover {
+            background-color: ${(props) => props.theme.colors.primary};
+        }
         
     }
 
     textarea {
         height: 15rem;
-        margin: 2rem auto;
         font-size: 1.6rem;
         padding: .5rem;
         width: 90%;
@@ -390,6 +396,16 @@ export const CheckoutForm = styled.div`
         line-height: 2;
         border: 2px solid ${(props) => props.theme.colors.primary};
         outline:none;    
+    }
+    input {
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    width: 90%;
+    border-radius: .5rem;
+    display: block;
+    line-height: 2;
+    border: 2px solid ${(props) => props.theme.colors.primary};
+    outline:none;    
     }
     label {
         font-weight: 900;
@@ -400,4 +416,11 @@ export const CheckoutForm = styled.div`
     }
 
     
+`;
+
+export const ErrorDiv = styled.div`
+    margin-top:.2rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
 `;

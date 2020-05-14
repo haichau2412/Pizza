@@ -11,7 +11,6 @@ const rotate = keyframes`
 `;
 
 export const NavLink = styled(Link)`
-    text-decoration: none;
     color: ${props => props.theme.colors.primaryDark};
     margin-bottom: 2rem;
 `;
@@ -35,7 +34,6 @@ export const LoadingIcon = styled.div`
 `;
 
 export const FormContainer = styled.div`
-    
     display: flex;
     flex-direction: column;
     align-items: center;

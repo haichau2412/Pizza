@@ -11,6 +11,7 @@ function Home() {
                 <Banner />
             </DetailBox>
             <ProductImage />
+            
         </StyledHome>
     )
 }

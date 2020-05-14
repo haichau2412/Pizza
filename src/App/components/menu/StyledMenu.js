@@ -87,7 +87,7 @@ export const StyledItem = styled.div`
     button {
         justify-self: center;
         width: 50%;
-        font-family: 'Roboto';
+        font-family: inherit;
         /* align-self: end; */
         /* border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px; */

@@ -3,7 +3,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { checkout, resetMsg } from '../../redux/cart/CartSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { CheckoutForm, LoadingIcon } from './StyledCart'
+import { CheckoutForm, LoadingIcon, ErrorDiv } from './StyledCart'
 import sprite from '../../assets/sprite.svg';
 
 const initialValues = {
@@ -39,17 +39,22 @@ const AddressForm = ({ ulti }) => {
         },
         validate: (values) => {
             const errors = {};
-            const { address } = values;
+            const { address, phone } = values;
 
             if (!address) {
                 errors.address = 'Required';
+            }
+            if (!phone) {
+                errors.phone = 'Required';
+            } else if (!/^(056|058|059|03[2-9]|09[0-4]|09[6-9]|08[1-9]|070|07[6-9]){1}[0-9]{7}/g.test(phone)) {
+                errors.phone = 'Invalid phone number'
             }
             return errors;
 
         }
     });
-    const { errors, values, handleChange, handleSubmit, isSubmitting } = formik;
-    const { address } = values;
+    const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
+    const { address, phone } = values;
 
     React.useEffect(() => {
         dispatch(resetMsg());
@@ -72,9 +77,12 @@ const AddressForm = ({ ulti }) => {
     return (
         <CheckoutForm onSubmit={handleSubmit}>
             <form>
+                <label htmlFor="phone">Phone for shipping</label>
+                <input type="text" id="phone" name="phone" onChange={handleChange} value={phone} onBlur={handleBlur} />
+                <ErrorDiv>{errors.phone}</ErrorDiv>
                 <label htmlFor="address">Address for shipping</label>
-                <textarea type="text" id="address" name="address" onChange={handleChange} value={address} />
-                {errors.address ? <div>{errors.address}</div> : null}
+                <textarea type="text" id="address" name="address" onChange={handleChange} value={address} onBlur={handleBlur} />
+                <ErrorDiv>{errors.address}</ErrorDiv>
                 <button disabled={isSubmitting} type="submit">Check out</button>
                 {isRequesting ? <LoadingIcon>
                     <svg>

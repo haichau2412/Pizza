@@ -1,6 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import pizza from "../../assets/pizza.png";
 import { Link } from 'react-router-dom';
+
+const zoom = keyframes`
+  from {
+    transform: scale(1);
+    opacity: .7;
+  }
+  to {
+    transform:scale(1.1);
+    opacity: 1;
+  }
+`;
 
 export const StyledHome = styled.div`
     position: relative;
@@ -10,6 +21,11 @@ export const StyledHome = styled.div`
     overflow: hidden; 
     display: flex;
     justify-content: flex-end;
+
+
+  @media only screen and (max-width: 1000px) {
+    justify-content: center;
+    }
 `;
 
 export const DetailBox = styled.div`
@@ -19,8 +35,8 @@ export const DetailBox = styled.div`
   align-items: center;
   padding: 5rem;
 
-  @media (max-width: 600px) {
-    margin-left: 0;
+  @media only screen and (max-width: 1000px) {
+    margin-right:0;
     }
 
 `;
@@ -78,7 +94,7 @@ export const StyledBanner = styled.section`
       line-height: 3rem;
         list-style: none;
         font-size: 3rem;
-        font-weight:500;
+        font-weight:600;
         :not(:first-child){
             margin-top: 3rem;
         }
@@ -86,8 +102,20 @@ export const StyledBanner = styled.section`
 
     @media (max-width: 1000px) {
     h1 {
-      line-height: 6rem;
-      font-size: 6rem;
+      line-height: 7rem;
+      font-size: 7rem;
+    }
+    li {
+      font-weight:600;
+      line-height: 2.5rem;
+      font-size: 2.5rem;
+    }
+    }
+
+    @media (max-width: 600px) {
+    h1 {
+      line-height: 5rem;
+      font-size: 5rem;
     }
     li {
       line-height: 2rem;
@@ -119,13 +147,13 @@ export const LinkButton = styled(Link)`
   background-color: ${props => props.theme.colors.primary};
   text-transform: uppercase;
   cursor: pointer;
+  animation: ${zoom} .7s linear alternate infinite;
 
   :hover{
-    color: ${props => props.theme.colors.primary};
     background-color: ${props => props.theme.colors.primaryLight};
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1000px) {
     font-size: 2rem;
   }
 `;
@@ -146,7 +174,9 @@ export const ProductImage = styled.div`
 
 
   @media only screen and (max-width: 1000px) {
-    transform: translate(-90%,-50%);
+    /* top: 25%; */
+    transform: translate(-50%,-50%);
+    opacity: .5;
     }
 
     @media only screen and (max-width: 600px) {
@@ -155,10 +185,29 @@ export const ProductImage = styled.div`
 `;
 
 
-export const StyledProcess = styled.div`
-  display: block;
-  height: 10rem;
-  width:  50rem;
-  border: 2px solid #000;
+export const ShopInfo = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+
+  div {
+    margin-top:2rem;
+    p {
+      display: inline-block;
+    }
+    p:nth-child(1){
+    font-weight: 600;
+  }
+  p:nth-child(2){
+  margin-left: 1rem;
+}
+  }
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 1.6rem;
+    }
+
+
 
 `;
