@@ -18,6 +18,8 @@ const Menu = () => {
         setCategory(data);
     }
 
+    console.log(category);
+
     React.useEffect(
         () => {
             const fetchData = async () => {

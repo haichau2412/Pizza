@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper, ErrorDiv, NavLink } from './StyledAuth';
 import { authUser, resetMsg } from '../../redux/auth/AuthSlice';
 import { validateSignup } from './validator';
-import { history } from '../../service/History';
 import Alert from '../sharecomponents/alert/Alert';
 import sprite from '../../assets/sprite.svg';
 
@@ -22,6 +21,7 @@ const getMsg = (state) => {
 };
 
 const getAuthenticating = (state) => state.auth.authenticating;
+
 
 const SignUp = () => {
 
@@ -40,17 +40,8 @@ const SignUp = () => {
 
     const formik = useFormik({
         initialValues,
-        onSubmit: async (values, { setSubmitting, resetForm }) => {
-
-            setSubmitting(true);
-
-            try {
-                dispatch(authUser({ values, type: 'signup' }));
-            }
-            catch (error) {
-            }
-            setIsVisible(true);
-            setSubmitting(false);
+        onSubmit: (values, { resetForm }) => {
+            dispatch(authUser({ values, type: 'signup' }));
         },
         validate: validateSignup
     })
@@ -58,21 +49,18 @@ const SignUp = () => {
     React.useEffect(() => {
         dispatch(resetMsg());
 
-
+        return () => {
+            dispatch(resetMsg());
+        };
     }, [dispatch]);
 
     React.useEffect(() => {
-        if (message === 'Confirm email sent' && !isVisible) {
-            history.push('/home');
+        if (message && !isAuthenticating) {
+            setIsVisible(true);
         }
-        return () => {
-            if (message === 'Confirm email sent' && !isVisible) {
-                dispatch(resetMsg());
-            }
-        };
-    }, [message, isVisible, dispatch]);
+    }, [message, dispatch, isAuthenticating]);
 
-    const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
+    const { errors, values, handleChange, handleSubmit, handleBlur } = formik;
     const { username, password, email, confirmedPassword } = values;
 
     let status = message === 'Confirm email sent' ? 'success' : message === 'Network error' ? 'error' : 'warning';
@@ -105,7 +93,7 @@ const SignUp = () => {
                             <Input type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} value={confirmedPassword} onBlur={handleBlur} />
                             <ErrorDiv>{errors.confirmedPassword}</ErrorDiv>
                         </InputField>
-                        <Button disabled={isSubmitting} type="submit">Sign up</Button>
+                        <Button disabled={isAuthenticating} type="submit">Sign up</Button>
                     </form>
                     <LoadingIcon isAuthenticating={isAuthenticating}  >
                         <svg>

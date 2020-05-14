@@ -41,8 +41,8 @@ export const StyledAlert = styled.div`
         text-align: center;
         display: inline-block;
         flex-grow: 2;
-        line-height: 1.6rem;
-        font-size: 1.6rem;
+        line-height: 1.8rem;
+        font-size: 1.8rem;
         color: ${props => props.theme.colors[`bt${props.status}`]};
         font-weight: 600;
 

@@ -50,6 +50,7 @@ export const authSlice = createSlice({
         },
         [authUser.fulfilled]: (state, action) => {
             const { requestId } = action.meta
+
             const { msg, username, token } = action.payload;
 
             if (state.authenticating === true && state.currentRequestId === requestId) {

@@ -52,7 +52,7 @@ export const StyledLink = styled(Link)`
     z-index: 2;
     display: inline-block;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
     padding: 1.5rem 3rem;
 
     :link,:visited {
@@ -73,7 +73,7 @@ export const StyledLink = styled(Link)`
     }
 
     @media (max-width: 1000px) {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         padding: 1rem 2rem;
     }
     

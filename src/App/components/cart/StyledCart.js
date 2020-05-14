@@ -387,6 +387,7 @@ export const CheckoutForm = styled.div`
     }
 
     textarea {
+        font-family: inherit;
         height: 15rem;
         font-size: 1.6rem;
         padding: .5rem;

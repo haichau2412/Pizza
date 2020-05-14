@@ -26,16 +26,8 @@ const AddressForm = ({ ulti }) => {
 
     const formik = useFormik({
         initialValues,
-        onSubmit: async (values, { setSubmitting, resetForm }) => {
-
-            setSubmitting(true);
-            try {
-                dispatch(checkout({ ...values, token }));
-            }
-            catch (error) {
-
-            }
-            setSubmitting(false);
+        onSubmit: (values) => {
+            dispatch(checkout({ ...values, token }));
         },
         validate: (values) => {
             const errors = {};
@@ -46,18 +38,20 @@ const AddressForm = ({ ulti }) => {
             }
             if (!phone) {
                 errors.phone = 'Required';
-            } else if (!/^(056|058|059|03[2-9]|09[0-4]|09[6-9]|08[1-9]|070|07[6-9]){1}[0-9]{7}/g.test(phone)) {
+            } else if (!/(^(056|058|059|03[2-9]|09[0-4]|09[6-9]|08[1-9]|070|07[6-9])){1}[0-9]{7}$/g.test(phone)) {
                 errors.phone = 'Invalid phone number'
             }
             return errors;
 
         }
     });
-    const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
+    const { errors, values, handleChange, handleSubmit, handleBlur } = formik;
     const { address, phone } = values;
 
     React.useEffect(() => {
         dispatch(resetMsg());
+
+        return () => dispatch(resetMsg());
     }, [dispatch])
 
     React.useEffect(() => {
@@ -83,7 +77,7 @@ const AddressForm = ({ ulti }) => {
                 <label htmlFor="address">Address for shipping</label>
                 <textarea type="text" id="address" name="address" onChange={handleChange} value={address} onBlur={handleBlur} />
                 <ErrorDiv>{errors.address}</ErrorDiv>
-                <button disabled={isSubmitting} type="submit">Check out</button>
+                <button disabled={isRequesting} type="submit">Check out</button>
                 {isRequesting ? <LoadingIcon>
                     <svg>
                         <use href={sprite + '#icon-spinner2'} />

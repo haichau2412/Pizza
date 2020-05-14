@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import { StyledUserDashboard } from './StyledHeader';
 import photo from '../../../assets/photo.png';
 import DropdownMenu from './DropdownMenu';
-import routes from './routes';
 import { useSelector } from 'react-redux';
 
 
@@ -33,7 +32,7 @@ const UserDashboard = () => {
         <StyledUserDashboard onClick={toggleMenu} title={authenticated ? 'Log out' : "Signin/Signup"} >
             <img src={photo} alt="User" />
             <span>{currentUser || ''}</span>
-            {isOpen ? <DropdownMenu toggle={toggleOutside} auth={authenticated} routes={routes} /> : null}
+            {isOpen ? <DropdownMenu toggle={toggleOutside} auth={authenticated} /> : null}
         </StyledUserDashboard>
     )
 }

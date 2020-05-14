@@ -46,35 +46,36 @@ const SignIn = () => {
 
     const formik = useFormik({
         initialValues,
-        onSubmit: async (values, { setSubmitting, resetForm }) => {
-
-            setSubmitting(true);
-            try {
-                dispatch(authUser({ values, type: 'login' }));
-            }
-            catch (error) {
-
-            }
-            setIsVisible(true);
-            setSubmitting(false);
+        onSubmit: (values) => {
+            dispatch(authUser({ values, type: 'login' }));
         },
         validate: validateLogin
     })
 
     React.useEffect(() => {
         dispatch(resetMsg());
-    }, [dispatch])
+
+        return () => dispatch(resetMsg());
+    }, [dispatch]);
+
+    React.useEffect(() => {
+        if (message && !isAuthenticating) {
+            setIsVisible(true);
+        }
+    }, [message, dispatch, isAuthenticating]);
 
     React.useEffect(() => {
         if (isAuthenticated) {
-            history.push('/menu');
+            if (history.location.state.pre === '/cart') {
+                history.push('/cart');
+            }
+            else {
+                history.push('/menu');
+            }
         }
-        return () => {
-            dispatch(resetMsg());
-        };
     }, [isAuthenticated, dispatch]);
 
-    const { errors, values, handleChange, handleSubmit, isSubmitting, handleBlur } = formik;
+    const { errors, values, handleChange, handleSubmit, handleBlur } = formik;
     const { username, password } = values;
 
     let status = message === 'Network error' ? 'error' : 'warning';
@@ -97,7 +98,7 @@ const SignIn = () => {
                             <Input type="password" id="password" name="password" onChange={handleChange} value={password} onBlur={handleBlur} />
                             <ErrorDiv>{errors.password}</ErrorDiv>
                         </InputField>
-                        <Button disabled={isSubmitting} type="submit">Sign in</Button>
+                        <Button disabled={isAuthenticating} type="submit">Sign in</Button>
                     </form>
                     <LoadingIcon isAuthenticating={isAuthenticating}  >
                         <svg>
