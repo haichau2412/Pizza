@@ -54,12 +54,12 @@ export const NavButton = styled(Link)`
     color: ${(props) => props.theme.colors.primary};
     border-radius : 8px;
     border: none;
-    line-height: 1.6rem;
+    line-height: 2rem;
     text-align: center;
     text-transform: uppercase;
     background-color: #fff;
     font-weight: 1000;
-    font-size: 1.6rem;
+    font-size: 2rem;
     text-decoration: none;
     
     
@@ -175,8 +175,8 @@ export const StyledUserDashboard = styled.div`
     }
 
     span {
-        line-height: 1rem;
-        font-size: 1.4rem;
+        line-height: 1.6rem;
+        font-size: 1.6rem;
         margin-right: 1rem;
 
         @media only screen and (max-width: 600px){

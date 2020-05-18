@@ -2,6 +2,7 @@ import React from 'react'
 import { getOrders } from '../../service/UserServices';
 import { useSelector } from 'react-redux';
 import { StyledHistory } from './StyledHistory';
+import Item from './Item';
 
 function History() {
 
@@ -17,11 +18,22 @@ function History() {
             fetchData();
         }, [token]);
 
-    console.log(history);
+
+
+    const renderHistory = React.useMemo(() => {
+        let items = [];
+        for (let i = history.length - 1; i >= 0; i--) {
+            items.push(history[i])
+        }
+        return items.map((order, index) => {
+            return <Item order={order} key={index}></Item>
+        })
+    }, [history]);
+
 
     return (
         <StyledHistory>
-
+            {renderHistory}
         </StyledHistory>
     )
 }

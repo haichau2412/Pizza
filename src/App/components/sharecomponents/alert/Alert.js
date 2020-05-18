@@ -2,14 +2,22 @@ import React from 'react';
 import { StyledAlert } from './AlertStyled';
 import sprite from '../../../assets/sprite.svg';
 
-const Alert = ({ menu, status, msg, isVisible, handleClick }) => {
+const Alert = ({ menu, status, msg, isVisible, handleClick, handleSuccessOrder }) => {
 
     React.useEffect(() => {
-        let id = setInterval(() => {
-            handleClick()
-        }, 2500);
+        let id
+        if (msg === 'Order successfully') {
+            id = setInterval(() => {
+                handleClick()
+                handleSuccessOrder();
+            }, 1500);
+        } else {
+            id = setInterval(() => {
+                handleClick()
+            }, 2500);
+        }
         return () => clearInterval(id);
-    }, [isVisible, handleClick, msg]);
+    }, [isVisible, handleClick, msg, handleSuccessOrder]);
 
     if (msg === 'Confirm email sent') {
         msg = 'A verification link is sent to your email'

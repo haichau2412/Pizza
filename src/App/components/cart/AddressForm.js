@@ -1,9 +1,8 @@
 import React from 'react';
-// import Alert from '../sharecomponents/alert/Alert';
 import { useFormik } from 'formik';
 import { checkout, resetMsg } from '../../redux/cart/CartSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { CheckoutForm, LoadingIcon, ErrorDiv } from './StyledCart'
+import { CheckoutForm, LoadingIcon, ErrorDiv } from './StyledCart';
 import sprite from '../../assets/sprite.svg';
 
 const initialValues = {
@@ -21,6 +20,7 @@ const AddressForm = ({ ulti }) => {
     const message = useSelector(getMsg);
     const token = useSelector(getToken);
     const dispatch = useDispatch();
+
 
     const isRequesting = useSelector(getRequesting);
 
@@ -59,14 +59,12 @@ const AddressForm = ({ ulti }) => {
             setMessage(message);
             setStatus('success');
             setIsVisible(true);
-
         } else {
             setMessage(message);
             setStatus('error');
             setIsVisible(true);
         }
     }, [dispatch, message, setIsVisible, setMessage, setStatus]);
-
 
     return (
         <CheckoutForm onSubmit={handleSubmit}>

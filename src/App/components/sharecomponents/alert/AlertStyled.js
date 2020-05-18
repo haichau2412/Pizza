@@ -74,7 +74,7 @@ export const StyledAlert = styled.div`
             height: 1.6rem;
 
             @media only screen and (max-width: 600px) {
-                width: 1.4rem;
+            width: 1.4rem;
             height: 1.4rem;
     }
         }
