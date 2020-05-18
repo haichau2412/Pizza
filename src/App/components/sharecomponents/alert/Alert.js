@@ -11,7 +11,7 @@ const Alert = ({ menu, status, msg, isVisible, handleClick, handleSuccessOrder }
                 handleClick()
                 handleSuccessOrder();
             }, 1500);
-        } else {
+        } else if (isVisible === true) {
             id = setInterval(() => {
                 handleClick()
             }, 2500);

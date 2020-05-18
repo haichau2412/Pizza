@@ -90,9 +90,6 @@ export const StyledInfo = styled.div`
 
 export const Empty = styled.div`
     text-align: center;
-    @media only screen and (max-width: 1000px) {
-        
-    }
 `;
 
 export const Tag = styled.div`

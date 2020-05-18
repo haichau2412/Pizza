@@ -1,7 +1,7 @@
 import React from 'react'
 import { getOrders } from '../../service/UserServices';
 import { useSelector } from 'react-redux';
-import { StyledHistory } from './StyledHistory';
+import { StyledHistory,Empty } from './StyledHistory';
 import Item from './Item';
 
 function History() {
@@ -33,7 +33,7 @@ function History() {
 
     return (
         <StyledHistory>
-            {renderHistory}
+            {history.length===0?<Empty>You haven't ordered anything</Empty>:renderHistory}
         </StyledHistory>
     )
 }

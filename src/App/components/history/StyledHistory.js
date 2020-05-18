@@ -47,6 +47,16 @@ export const Heading = styled.div`
 
 `;
 
+export const Empty = styled.div`
+padding: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    border-radius: 8px;
+    background-color: #fff;
+`;
+
 export const Details = styled.div`
 
     display: flex;
@@ -86,7 +96,7 @@ export const ShippingData = styled.div`
     
     p:nth-child(1){
         display: inline-block;
-        flex: 0 0 20%;
+        flex: 0 0 14%;
         color: ${props => props.theme.colors.darkGrey};
     }
 
@@ -94,7 +104,7 @@ export const ShippingData = styled.div`
         margin-left: 1rem;
         display: flex;
         align-items: center;
-        flex: 0 0 80%;
+        flex: 0 0 86%;
         font-weight: 600;
     }
 `;

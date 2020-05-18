@@ -35,12 +35,14 @@ const Cart = () => {
         }
     }, [shoudNavigate]);
 
-    const handleSuccessOrder = () => {
+
+
+    const handleSuccessOrder = React.useCallback(() => {
         setShouldNavigate(true);
-    }
-    const handleClickAlert = () => {
+    }, [])
+    const handleClickAlert = React.useCallback(() => {
         setIsVisible(false);
-    }
+    }, [])
 
     React.useEffect(() => {
         if (items === 0) {
