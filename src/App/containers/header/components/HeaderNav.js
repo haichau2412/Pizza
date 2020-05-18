@@ -9,16 +9,18 @@ const HeaderNav = ({ auth }) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     const toggleMenu = () => {
+
         setIsOpen(pre => !pre);
     }
 
+
     const toggleOutside = React.useCallback(
         () => {
+
             if (isOpen === true) {
                 setIsOpen(false);
             }
         }, [isOpen]);
-
 
     return (
         <>

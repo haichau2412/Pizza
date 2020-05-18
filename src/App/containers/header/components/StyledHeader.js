@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const StyledHeader = styled.header`
     padding: 1rem 0;
     width: 100vw;
-    height: 8vh;
+    height: 9vh;
     display: flex;
     align-items: center;
     background-color: #fff;    
@@ -12,14 +12,20 @@ export const StyledHeader = styled.header`
     top: 0;
     z-index: 1004;
     box-shadow: 0 1px 5px rgba(0,0,0,.2);
+    min-height: 6rem;
 
 `;
 
-export const Logo = styled(Link)`
+export const Logo = styled.div`
     flex: 0 0 ${100 / 3}%;
     align-self: stretch;
     display: flex;
     justify-content: center;
+    
+    a {
+     display: flex;
+     justify-content: center;
+    }
     img {
         height: 100%
     }
@@ -177,10 +183,6 @@ export const StyledUserDashboard = styled.div`
        display: none;
     }
     }
-
-    
-
-    
 `;
 export const Dropdown = styled.div`
 
@@ -213,7 +215,6 @@ export const StyledropdownNav = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
-    z-index: 1004;
 
     & > *:not(:nth-child(1)) {
         margin-top: 1rem;
@@ -253,7 +254,6 @@ export const DropdownLogout = styled.a`
     text-decoration: none;
     color: #000;
     cursor: pointer;
-    z-index: 1004;
 
     :hover {
         border-radius: 8px;

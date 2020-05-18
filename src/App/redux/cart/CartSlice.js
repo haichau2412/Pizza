@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const { product } = action.payload;
-            const { photo, name, description, price, _id } = product;
+            const { category, photo, name, description, price, _id } = product;
             let quantity;
             const isNewProduct = state.isExist[_id];
 
@@ -44,7 +44,7 @@ export const cartSlice = createSlice({
             }
             state.total += price;
             state.items += 1;
-            state.products[_id] = { photo, name, description, price, quantity };
+            state.products[_id] = { category, photo, name, description, price, quantity };
         },
         add: (state, action) => {
 
@@ -84,7 +84,6 @@ export const cartSlice = createSlice({
 
             const { msg } = action.payload;
 
-            console.log(msg);
             if (state.requesting === true && state.currentRequestId === requestId) {
                 state.requesting = false;
                 state.currentRequestId = undefined

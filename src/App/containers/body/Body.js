@@ -8,6 +8,8 @@ import Menu from '../../components/menu/Menu';
 import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
 import Confirm from '../../components/home/Confirm';
+import History from '../../components/history/History';
+import { useSelector } from 'react-redux';
 
 const routes = [
     {
@@ -30,11 +32,12 @@ const routes = [
     {
         path: '/auth',
         component: User,
-    }
+    },
 ]
 
 const Body = () => {
 
+    const auth = useSelector((state) => state.auth.authenticated);
     return (
         <Switch>
             {routes.map((route, index) => {
@@ -45,6 +48,10 @@ const Body = () => {
             <Route path="/confirm/:hashedToken/:username">
                 <Confirm />
             </Route>
+
+            {auth ? <Route path="/history">
+                <History />
+            </Route> : null}
         </Switch>
     )
 }

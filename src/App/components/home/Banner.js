@@ -19,10 +19,11 @@ const Banner = () => {
             <ShopInfo>
                 <div>
                     <p>Phone:</p>
-                    <p>1900 1099</p></div>
+                    <p>1900 1099</p>
+                </div>
                 <div>
                     <p>Address:</p>
-                    <p>E.town 3. 364 Cong Hoa, Tan Binh, Ho Chi Minh City</p>
+                    <p>E.town 3. 364 Cong Hoa, Tan Binh</p>
                 </div>
             </ShopInfo>
         </StyledBanner >

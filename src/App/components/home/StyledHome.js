@@ -15,28 +15,32 @@ const zoom = keyframes`
 
 export const StyledHome = styled.div`
     position: relative;
-    padding-top: 5rem;
-    height: 100vh;
+    padding-top: 3rem;
     text-align: center;    
-    overflow: hidden; 
     display: flex;
     justify-content: flex-end;
+    min-height: 100vh;
+    overflow: hidden;
+    align-items: center;
 
-
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1024px) {
     justify-content: center;
     }
 `;
 
 export const DetailBox = styled.div`
-  margin-right:15rem;
+  margin-right:20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5rem;
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1024px) {
     margin-right:0;
+    }
+
+    @media only screen and (max-width: 600px) {
+      padding: 1rem;
     }
 
 `;
@@ -45,6 +49,16 @@ export const DetailBox = styled.div`
 export const Logo = styled.img`
     height: 10rem;
     width: 20rem;
+
+    @media only screen and (max-width: 1000px) {
+      height: 8rem;
+    width: 16rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+      height: 6rem;
+    width: 12rem;
+    }
 `;
 
 
@@ -100,10 +114,11 @@ export const StyledBanner = styled.section`
         }
     }
 
-    @media (max-width: 1000px) {
+    @media only screen and (max-width: 1000px) {
     h1 {
       line-height: 7rem;
       font-size: 7rem;
+      padding: 1.5rem 1rem;
     }
     li {
       font-weight:600;
@@ -112,10 +127,11 @@ export const StyledBanner = styled.section`
     }
     }
 
-    @media (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
     h1 {
-      line-height: 5rem;
-      font-size: 5rem;
+      line-height: 6rem;
+      font-size: 6rem;
+      padding: 1rem .5rem;
     }
     li {
       line-height: 2rem;
@@ -123,7 +139,7 @@ export const StyledBanner = styled.section`
     }
     }
 
-    @media (max-width: 375px) {
+    @media only screen and (max-width: 375px) {
       h1 {
       line-height: 4rem;
       font-size: 4rem;
@@ -153,8 +169,14 @@ export const LinkButton = styled(Link)`
     background-color: ${props => props.theme.colors.primaryLight};
   }
 
-  @media (max-width: 1000px) {
+  @media only screen and (max-width: 1000px) {
+    padding: 1.5rem;
     font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 1rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -163,10 +185,10 @@ export const ProductImage = styled.div`
   z-index: 2;
   position: absolute;
   transform: translate(-110%,-50%);
-  top: 50%;
+  top: 57%;
   left: 50%;
-  width: 100rem;
-  height: 100rem;
+  width: 120rem;
+  height: 120rem;
   /* opacity: .3; */
   background-image: url(${pizza});
   background-repeat: no-repeat;
@@ -179,9 +201,10 @@ export const ProductImage = styled.div`
     opacity: .5;
     }
 
-    @media only screen and (max-width: 600px) {
-    transform: translate(-50%,-50%);
-    }
+    /* @media only screen and (max-width: 600px) {
+      width: 100%;
+  height: 100%;
+    } */
 `;
 
 
@@ -189,25 +212,23 @@ export const ShopInfo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 2.5rem;
+  align-items: center;
+  font-size: 2rem;
+  line-height:2rem;
 
   div {
     margin-top:2rem;
     p {
-      display: inline-block;
+      display: block;
     }
     p:nth-child(1){
     font-weight: 600;
   }
-  p:nth-child(2){
-  margin-left: 1rem;
-}
+
   }
 
   @media only screen and (max-width: 1000px) {
     font-size: 1.6rem;
+    line-height:1.6rem;
     }
-
-
-
 `;

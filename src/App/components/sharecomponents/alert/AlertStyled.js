@@ -5,22 +5,26 @@ export const StyledAlert = styled.div`
     align-items: center;
     position: fixed;
     border-radius: 8px;
-    top: ${props => props.menu ? '14%' : '8%'};
+    top: ${props => props.menu ? '14%' : '9%'};
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: ${props => props.theme.colors[`bg${props.status}`]};
     border-left: 7px solid ${props => props.theme.colors[`bt${props.status}`]};
     overflow: hidden;
-    transition: transform .5s cubic-bezier(.51,-0.52,.6,1.05);
+    transition: transform .4s cubic-bezier(.51,-0.52,.6,1.05);
     transform: ${props => props.isVisible ? 'translate(-50%,0%)' : 'translate(-50%,-150%)'};
     z-index: 1002;
 
     @media only screen and (max-width: 1000px) {
-        top: ${props => props.menu ? '12%' : '8%'};
+        top: ${props => props.menu ? '13%' : '9%'};
     }
 
     @media only screen and (max-width: 600px) {
         width: 80vw;
+    }
+
+    @media only screen and (max-width: 600px) {
+        top: ${props => props.menu ? '14%' : '9%'};
     }
 
     svg {

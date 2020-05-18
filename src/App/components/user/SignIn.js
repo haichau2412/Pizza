@@ -66,7 +66,7 @@ const SignIn = () => {
 
     React.useEffect(() => {
         if (isAuthenticated) {
-            if (history.location.state.pre === '/cart') {
+            if (history.location?.state?.pre === '/cart' && history.location.state.items !== 0) {
                 history.push('/cart');
             }
             else {

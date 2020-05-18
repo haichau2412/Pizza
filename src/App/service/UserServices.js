@@ -43,12 +43,15 @@ export const authUser = async ({ values, type }) => {
     return data;
 }
 
-export const checkout = async ({ address, cart, token, totalPrice }) => {
+export const checkout = async ({ address, cart, token, totalPrice, phone }) => {
     const keys = Object.keys(cart);
     const formattedCart = keys.map((producID, index) => {
         return {
             producID,
-            quantity: cart[producID].quantity
+            quantity: cart[producID].quantity,
+            name: cart[producID].name,
+            price: cart[producID].price,
+            category: cart[producID].category
         }
     })
     const requestOptions = {
@@ -57,7 +60,7 @@ export const checkout = async ({ address, cart, token, totalPrice }) => {
             'Content-Type': 'application/json',
             'Authorization': token
         },
-        body: JSON.stringify({ address, cart: formattedCart, totalPrice })
+        body: JSON.stringify({ phone, address, cart: formattedCart, totalPrice })
     }
 
     const response = await fetch(`${API_HOST}/orders`, requestOptions);
@@ -65,6 +68,22 @@ export const checkout = async ({ address, cart, token, totalPrice }) => {
     const data = await handleResponse(response);
 
     return data;
+}
+
+export const getOrders = async ({ token }) => {
+    const requestOptions = {
+        headers: {
+            'Authorization': token
+        }
+    }
+
+    const response = await fetch(`${API_HOST}/orders`, requestOptions);
+
+    const data = await handleResponse(response);
+
+    const history = Object.values(data);
+
+    return history;
 }
 
 export const confirmEmail = async ({ hashedToken, username }) => {
@@ -93,4 +112,5 @@ export default {
     handleResponse,
     checkout,
     confirmEmail,
+    getOrders
 }

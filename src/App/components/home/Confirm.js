@@ -7,6 +7,7 @@ import { history } from '../../service/History';
 const getAuthenticated = (state) => state.auth.authenticated;
 
 const Confirm = () => {
+
     // const [msg, setMsg] = React.useState('');
     let { hashedToken, username } = useParams();
 
@@ -26,7 +27,6 @@ const Confirm = () => {
 
     return (
         <>
-
         </>
     )
 }

@@ -18,8 +18,6 @@ const Menu = () => {
         setCategory(data);
     }
 
-    console.log(category);
-
     React.useEffect(
         () => {
             const fetchData = async () => {
@@ -48,7 +46,7 @@ const Menu = () => {
         <>
             <Alert menu={true} status={status} msg={message} isVisible={isVisible} handleClick={handleClickAlert} />
             <Sidebar routes={routes} handleClick={handleClick} />
-            <ProductView products={products[category]} addNotification={addNotification}></ProductView>
+            <ProductView category={category} products={products[category]} addNotification={addNotification}></ProductView>
         </>
     )
 };

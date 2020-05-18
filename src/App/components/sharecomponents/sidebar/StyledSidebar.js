@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledSidebar = styled.nav`
-    background-color: #000;
+    background-color:  ${(props) => props.theme.colors.primaryDark};
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 8vh;
+    top:9vh;
     width: 100vw;
     height: auto;
     z-index: 1003;
@@ -72,9 +72,14 @@ export const StyledLink = styled(Link)`
         background-color: ${(props) => props.theme.colors.primaryLight};
     }
 
-    @media (max-width: 1000px) {
+    @media only screen and (max-width: 1000px) {
         font-size: 1.6rem;
         padding: 1rem 2rem;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        font-size: 1.6rem;
+        padding: 1rem 0;
     }
     
 
