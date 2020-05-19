@@ -70,6 +70,9 @@ export const cartSlice = createSlice({
         },
         resetMsg: (state, action) => {
             state.msg = '';
+        },
+        resetRequesting: (state, action) => {
+            state.requesting = false;
         }
     },
     extraReducers: {
@@ -110,6 +113,6 @@ export const cartSlice = createSlice({
 
 const { actions, reducer } = cartSlice;
 
-export const { addToCart, add, reduce, resetMsg } = actions;
+export const { addToCart, add, reduce, resetMsg, resetRequesting } = actions;
 
 export default reducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { checkout, resetMsg } from '../../redux/cart/CartSlice';
+import { checkout, resetMsg, resetRequesting } from '../../redux/cart/CartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { CheckoutForm, LoadingIcon, ErrorDiv } from './StyledCart';
 import sprite from '../../assets/sprite.svg';
@@ -50,8 +50,11 @@ const AddressForm = ({ ulti }) => {
 
     React.useEffect(() => {
         dispatch(resetMsg());
-
-        return () => dispatch(resetMsg());
+        dispatch(resetRequesting())
+        return () => {
+            dispatch(resetRequesting());
+            dispatch(resetMsg());
+        }
     }, [dispatch])
 
     React.useEffect(() => {

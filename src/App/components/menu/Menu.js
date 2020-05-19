@@ -38,9 +38,9 @@ const Menu = () => {
         setIsVisible(visible);
     }
 
-    const handleClickAlert = () => {
+    const handleClickAlert = React.useCallback(() => {
         setIsVisible(false);
-    }
+    }, []);
 
     return (
         <>

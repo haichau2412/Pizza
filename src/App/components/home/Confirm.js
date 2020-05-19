@@ -15,8 +15,10 @@ const Confirm = () => {
     const isAuthenticated = useSelector(getAuthenticated);
 
     React.useEffect(() => {
-        dispatch(confirmEmail({ hashedToken, username }))
-    });
+        if (!isAuthenticated) {
+            dispatch(confirmEmail({ hashedToken, username }))
+        }
+    }, [isAuthenticated, dispatch, hashedToken, username]);
 
     React.useEffect(() => {
         if (isAuthenticated === true) {

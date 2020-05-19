@@ -39,7 +39,11 @@ export const authSlice = createSlice({
     reducers: {
         resetMsg: (state, action) => {
             state.msg = '';
-        }
+        },
+        resetAuthenticating: (state, action) => {
+            state.authenticating = false;
+        },
+
     },
     extraReducers: {
         [authUser.pending]: (state, action) => {
@@ -88,6 +92,7 @@ export const authSlice = createSlice({
         [confirmEmail.fulfilled]: (state, action) => {
             const { requestId } = action.meta
             const { msg, username, token } = action.payload;
+            console.log(action.payload);
 
             if (state.authenticating === true && state.currentRequestId === requestId) {
                 state.authenticating = false
@@ -100,7 +105,7 @@ export const authSlice = createSlice({
                 state.currentUser = username;
                 state.authenticated = true;
                 state.token = token;
-            } else if (msg) {
+            } else {
                 state.msg = msg;
             }
         },
@@ -120,7 +125,7 @@ export const authSlice = createSlice({
 
 const { actions, reducer } = authSlice;
 
-export const { resetMsg } = actions;
+export const { resetMsg, resetAuthenticating } = actions;
 
 export default reducer;
 

@@ -16,7 +16,7 @@ const Header = () => {
         <StyledHeader >
             <HeaderNav auth={isAuthenticated} />
             <Logo >
-                <Link to='/home' >
+                <Link to='/home' title='Home'>
                     <img src={LOGO} alt="Pyco Pizza" />
                 </Link>
             </Logo>

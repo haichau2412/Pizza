@@ -4,7 +4,7 @@ import {
 } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormTitle, LoadingIcon, InputField, Label, Input, Button, FormContainer, Wrapper, ErrorDiv, NavLink } from './StyledAuth';
-import { authUser, resetMsg } from '../../redux/auth/AuthSlice';
+import { authUser, resetMsg,resetAuthenticating } from '../../redux/auth/AuthSlice';
 import { validateSignup } from './validator';
 import Alert from '../sharecomponents/alert/Alert';
 import sprite from '../../assets/sprite.svg';
@@ -48,9 +48,10 @@ const SignUp = () => {
 
     React.useEffect(() => {
         dispatch(resetMsg());
-
+        dispatch(resetAuthenticating());
         return () => {
             dispatch(resetMsg());
+            dispatch(resetAuthenticating());
         };
     }, [dispatch]);
 

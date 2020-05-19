@@ -10,6 +10,8 @@ export const validateSignup = (values) => {
 
     if (!username) {
         errors.username = 'Required';
+    } else if (/ /g.test(username)) {
+        errors.username = 'Whitespace is not allowed ';
     }
 
     if (!password) {

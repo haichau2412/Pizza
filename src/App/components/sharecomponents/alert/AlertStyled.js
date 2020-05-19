@@ -7,7 +7,6 @@ export const StyledAlert = styled.div`
     border-radius: 8px;
     top: ${props => props.menu ? '14%' : '9%'};
     left: 50%;
-    transform: translate(-50%,-50%);
     background-color: ${props => props.theme.colors[`bg${props.status}`]};
     border-left: 7px solid ${props => props.theme.colors[`bt${props.status}`]};
     overflow: hidden;

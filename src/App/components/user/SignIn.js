@@ -4,7 +4,7 @@ import {
     useFormik
 } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { authUser, resetMsg } from '../../redux/auth/AuthSlice';
+import { authUser, resetMsg, resetAuthenticating } from '../../redux/auth/AuthSlice';
 import { validateLogin } from './validator';
 import { history } from '../../service/History';
 import Alert from '../sharecomponents/alert/Alert';
@@ -54,8 +54,12 @@ const SignIn = () => {
 
     React.useEffect(() => {
         dispatch(resetMsg());
+        dispatch(resetAuthenticating())
 
-        return () => dispatch(resetMsg());
+        return () => {
+            dispatch(resetMsg());
+            dispatch(resetAuthenticating())
+        }
     }, [dispatch]);
 
     React.useEffect(() => {

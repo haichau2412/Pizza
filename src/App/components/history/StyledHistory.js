@@ -158,6 +158,7 @@ export const Status = styled.div`
     p {
         text-align: center;
         margin-top: 2rem;
+        color:${props => props.theme.colors.primaryDark};
     }
 
     @media only screen and (max-width:600px){

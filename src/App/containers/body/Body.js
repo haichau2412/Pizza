@@ -9,6 +9,7 @@ import Cart from '../../components/cart/Cart';
 import Home from '../../components/home/Home';
 import Confirm from '../../components/home/Confirm';
 import History from '../../components/history/History';
+import RedirectHome from './RedirectHome';
 import { useSelector } from 'react-redux';
 
 const routes = [
@@ -52,6 +53,8 @@ const Body = () => {
             {auth ? <Route path="/history">
                 <History />
             </Route> : null}
+
+            <Route path='*' exact={true} component={RedirectHome} />
         </Switch>
     )
 }
